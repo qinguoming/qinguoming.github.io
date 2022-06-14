@@ -3,19 +3,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2022 | QGM blog</title>
+  <title>材料力学绪论 | QGM blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="材料力学" />
   
   
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="QGM blog">
-<meta property="og:url" content="http://example.com/archives/2022/index.html">
+  
+  <meta name="description" content="在材料力学中，一般将材料看作是均匀连续和各向同性的可变形弹性固体，且将构件的变形限制在小变形范围内">
+<meta property="og:type" content="article">
+<meta property="og:title" content="材料力学绪论">
+<meta property="og:url" content="http://example.com/post/6e2614a0">
 <meta property="og:site_name" content="QGM blog">
+<meta property="og:description" content="在材料力学中，一般将材料看作是均匀连续和各向同性的可变形弹性固体，且将构件的变形限制在小变形范围内">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://e.im5i.com/2021/08/02/vYJT0.png">
+<meta property="article:published_time" content="2021-08-02T03:46:44.000Z">
+<meta property="article:modified_time" content="2022-06-14T04:19:23.339Z">
 <meta property="article:author" content="覃国铭">
+<meta property="article:tag" content="材料力学">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://e.im5i.com/2021/08/02/vYJT0.png">
   
     <link rel="alternate" href="/atom.xml" title="QGM blog" type="application/atom+xml">
   
@@ -52,7 +61,7 @@
 
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
   
@@ -104,222 +113,125 @@
             
       <div id="content" class="outer">
         
-          <section id="main">
-  <div class="archives-tags-wrap"><blockquote><span>There are 2 posts in total till now.</span></blockquote>
-
-
-
-
-
-	<!-- 分页显示 -->
-	
-	
-		
-		
-		  
-		  
-		  <section class="archives-wrap">
-		    <div class="archive-year-wrap">
-		      <h1><a href="/archives/2022" class="archive-year">2022</a></h1>
-		    </div>
-		    <div class="archives">
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/post/4a17b156" class="archive-article-date">
-		  <time datetime="2022-06-13T08:38:40.740Z" itemprop="datePublished">Jun 13, 2022</time>
-	  </a>
-      
+          <section id="main" style="float:none;"><article id="post-1-材料力学绪论" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/post/4a17b156">Hello World</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      材料力学绪论
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/post/6e2614a0" class="article-date">
+	  <time datetime="2021-08-02T03:46:44.000Z" itemprop="datePublished">August 2, 2021</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/">材料力学</a>
+ 
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在材料力学中，一般将材料看作是均匀连续和各向同性的可变形弹性固体，且将构件的变形限制在小变形范围内</p>
+<span id="more"></span> 
+<h2 id="1-材料力学基本认知"><a href="#1-材料力学基本认知" class="headerlink" title="1. 材料力学基本认知"></a>1. 材料力学基本认知</h2><ol>
+<li>材料力学研究对象——杆类构件</li>
+<li>材料力学的研究内容——构件的强度、刚度、稳定性<ol>
+<li>强度 (strength)      构件抵抗破坏的能力</li>
+<li>刚度 (stiffness)   构件抵抗弹性变形的能力</li>
+<li>稳定性 (stability) 构件保持原有平衡状态的能力</li>
+</ol>
+</li>
+<li>材料力学的任务——科学地解决构件安全性和经济性的矛盾</li>
+<li>材料力学的基本假设和条件：均匀连续，各向同性，小变形条件</li>
+<li>在材料力学中，一般将材料看作是均匀连续和各向同性的可变形弹性固体，且将构件的变形限制在小变形范围内。</li>
+<li>构件受力与变形的基本形式——拉、压、剪、弯、扭</li>
+</ol>
+<h2 id="2-求解材料力学问题的一般方法-与步骤"><a href="#2-求解材料力学问题的一般方法-与步骤" class="headerlink" title="2. 求解材料力学问题的一般方法 与步骤"></a>2. 求解材料力学问题的一般方法 与步骤</h2><img src="https://e.im5i.com/2021/08/02/vYJT0.png" alt="vYJT0.png" border="0" />
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/">材料力学</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" rel="tag">材料力学</a></li></ul>
+
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post/4a17b156" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
 </article>
-	
-	
-		</div></section>
-	
 
-	<!-- 页数指示器 -->
-	
+<!-- Table of Contents -->
 
-
-
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E8%AE%A4%E7%9F%A5"><span class="nav-number">1.</span> <span class="nav-text">1. 材料力学基本认知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B1%82%E8%A7%A3%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%80%E8%88%AC%E6%96%B9%E6%B3%95-%E4%B8%8E%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">2. 求解材料力学问题的一般方法 与步骤</span></a></li></ol>
+    
+    </div>
+  </aside>
 </section>
-          <aside id="sidebar">
-  
-    <div style="margin: 20px 0;">
-	<div id="search-form-wrap">
-
-    <form class="search-form">
-        <label style="width: 72%;">
-            <span class="screen-reader-text">Search for:</span>
-            <input type="search" class="search-field" style="height: 36px; width: 100%;" placeholder=" Search…" value="" name="s" title="Search for:">
-        </label>
-        <input type="submit" class="search-form-submit" value="Search">
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-
-<script src="/js/insight.js"></script>
-
-
-</div>
-</div>
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Connect With Us</h3>
-    <div class="widget widget_athemes_social_icons">
-
-    	<ul class="clearfix widget-social-icons">   
-    	
-   			<li><a target="_blank" rel="noopener" href="https://github.com/iTimeTraveler" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
-
-   		
-   			<li><a href="" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li> 
-
-   		
-   			<li><a href="" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> 
-
-   		
-   			<li><a href="" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> 
-
-   		
-   			<li><a href="" title="Google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> 
-
-   		
-   			<li><a href="" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li> 
-
-   		
-   		</ul>
-
-
-   		<!--
-   		<ul class="clearfix widget-social-icons">   		
-   		<li class="widget-si-twitter"><a target="_blank" rel="noopener" href="http://twitter.com" title="Twitter"><i class="ico-twitter"></i></a></li> 
-		<li class="widget-si-facebook"><a target="_blank" rel="noopener" href="http://facebook.com" title="Facebook"><i class="ico-facebook"></i></a></li>
-			<li class="widget-si-gplus"><a target="_blank" rel="noopener" href="http://plus.google.com" title="Google+"><i class="ico-gplus"></i></a></li>
-			<li class="widget-si-pinterest"><a target="_blank" rel="noopener" href="http://pinterest.com" title="Pinterest"><i class="ico-pinterest"></i></a></li>
-			<li class="widget-si-flickr"><a target="_blank" rel="noopener" href="http://flickr.com" title="Flickr"><i class="ico-flickr"></i></a></li>
-			<li class="widget-si-instagram"><a target="_blank" rel="noopener" href="http://instagram.com" title="Instagram"><i class="ico-instagram"></i></a></li>
-		</ul> -->
-
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget_athemes_tabs">
-    <ul id="widget-tab" class="clearfix widget-tab-nav">
-      <li class="active"><a>Recent Posts</a></li>
-    </ul>
-    <div class="widget">
-      <ul>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/post/4a17b156">Hello World</a></h6>
-              <span>June 13, 2022</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/post/6e2614a0">材料力学绪论</a></h6>
-              <span>August 2, 2021</span>
-            </div>
-
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/">材料力学</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hell/" rel="tag">hell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" rel="tag">材料力学</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/hell/" style="font-size: 10px;">hell</a> <a href="/tags/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" style="font-size: 10px;">材料力学</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-</aside>
         
       </div>
 
