@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>三维图形绘制 | AKSOAM blog</title>
+    
+    
+        <meta name="keywords" content="matlab" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="1-1 曲线图绘制与二维绘图命令类似，在三维坐标下有三维的基本绘图命令plot3，其使用方法与plot相仿。plot3的调用格式如下。 格式一：$plot3(x, y, z)$  若$x, y, z$为相同长度的向量，则根据向量x, y, z绘制空间三维曲线。如果$x, y, z$为同阶矩阵，则绘制对应列的多条曲线  格式二：$plot3(x, y, z, ‘s’)$  按字符串s设置的线型、颜色">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三维图形绘制">
+<meta property="og:url" content="http://example.com/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/021%20%E4%B8%89%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/index.html">
+<meta property="og:site_name" content="AKSOAM blog">
+<meta property="og:description" content="1-1 曲线图绘制与二维绘图命令类似，在三维坐标下有三维的基本绘图命令plot3，其使用方法与plot相仿。plot3的调用格式如下。 格式一：$plot3(x, y, z)$  若$x, y, z$为相同长度的向量，则根据向量x, y, z绘制空间三维曲线。如果$x, y, z$为同阶矩阵，则绘制对应列的多条曲线  格式二：$plot3(x, y, z, ‘s’)$  按字符串s设置的线型、颜色">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://e.im5i.com/2021/08/06/1EdMQ.png">
+<meta property="og:image" content="https://e.im5i.com/2021/08/06/1Eg5h.png">
+<meta property="og:image" content="https://e.im5i.com/2021/08/06/1EYsy.png">
+<meta property="og:image" content="https://e.im5i.com/2021/08/06/1EsRX.png">
+<meta property="og:image" content="https://e.im5i.com/2021/08/06/1Epdf.png">
+<meta property="og:image" content="https://e.im5i.com/2021/08/08/1V7pf.png">
+<meta property="article:published_time" content="2021-08-06T03:50:44.000Z">
+<meta property="article:modified_time" content="2022-06-15T05:27:17.075Z">
+<meta property="article:author" content="覃国铭">
+<meta property="article:tag" content="matlab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://e.im5i.com/2021/08/06/1EdMQ.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="AKSOAM blog" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">AKSOAM blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">AKSOAM1037</h2>
+            <h3 id="title">A Student of HUST</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Wuhan, China</span>
+            <a id="follow" target="_blank" href="https://space.bilibili.com/470140717">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                21
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                4
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/qinguoming/qinguoming.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Abaques
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            basic
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Abaques/%E6%9C%ACwiki%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">本wiki第一篇博客</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            matlab
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            基础知识
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/001%20MATLAB-plotyy-%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">plotyy()和plot()</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/003%20matlab-%E5%8F%8D%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/">反三角函数</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/007%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%B8%80/">程序流程控制结构(一)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/005%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%BA%8C/">程序流程控制结构(二)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/006%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%B8%89/">程序流程控制结构(三)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/014%20%E5%87%BD%E6%95%B0%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%B0%83%E7%94%A8/">函数文件的定义和调用</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/004%20matlab-%E7%9F%A9%E9%98%B5%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84%E5%85%B3%E7%B3%BB/">矩阵和数组的关系</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/012%20%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%92%8C%E5%87%BD%E6%95%B0%E5%8F%98%E9%87%8F%E6%80%BB%E7%BB%93/">函数参数和函数变量</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/013%20%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/">函数类型及函数调用方法</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/008%20%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/017%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8A/">数组和矩阵的操作(上)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/018%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8B/">数组和矩阵的操作(下)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/015%20%E7%BB%98%E5%88%B6%E7%A6%BB%E6%95%A3%E6%95%B0%E6%8D%AE/">绘制离散数据</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/009%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-1/">符号计算1</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/010%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-2/">符号计算_7.3</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/011%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-3/">符号计算 7-4</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/019%20%E5%9B%BE%E5%BD%A2%E5%8F%A5%E6%9F%84/">图形句柄</a></li>  <li class="file active"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/021%20%E4%B8%89%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">三维图形绘制</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/020%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">二维绘图</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">Welcome AKSOAM's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>archives</span></h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">17</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-matlab/baisc 知识/021 三维数据可视化" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/matlab/">matlab</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/matlab/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/matlab/" rel="tag">matlab</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/021%20%E4%B8%89%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">
+            <time datetime="2021-08-06T03:50:44.000Z" itemprop="datePublished">2021-08-06</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            三维图形绘制
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h3 id="1-1-曲线图绘制"><a href="#1-1-曲线图绘制" class="headerlink" title="1-1 曲线图绘制"></a>1-1 曲线图绘制</h3><p>与二维绘图命令类似，在三维坐标下有三维的基本绘图命令plot3，其使用方法与plot相仿。plot3的调用格式如下。</p>
+<p>格式一：$plot3(x, y, z)$</p>
+<blockquote>
+<p>若$x, y, z$为<strong>相同长度的向量</strong>，则根据向量x, y, z绘制空间三维曲线。<br>如果$x, y, z$为同阶矩阵，则绘制对应列的多条曲线</p>
+</blockquote>
+<p>格式二：$plot3(x, y, z, ‘s’)$</p>
+<blockquote>
+<p>按字符串s设置的线型、颜色、标记符号绘制三维空间曲线。字符串s的设置与$plot()$命令的设置相同。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; t=<span class="number">0</span>:pi/<span class="number">10</span>:<span class="number">10</span>*pi;</span><br><span class="line">&gt;&gt; x=cos(t);</span><br><span class="line">&gt;&gt; y=sin(t);</span><br><span class="line">&gt;&gt; plot3(x,y,t,<span class="string">&#x27;bo-.&#x27;</span>);</span><br><span class="line">&gt;&gt; xlabel(<span class="string">&#x27;x=cos(t)&#x27;</span>);</span><br><span class="line">&gt;&gt; ylabel(<span class="string">&#x27;y=sin(t)&#x27;</span>);</span><br><span class="line">&gt;&gt; zlabel(<span class="string">&#x27;z&#x27;</span>);</span><br><span class="line">&gt;&gt; title(<span class="string">&#x27;三维螺旋线&#x27;</span>)</span><br><span class="line">&gt;&gt; </span><br></pre></td></tr></table></figure>
+<h3 id="1-2-三维网线图绘制"><a href="#1-2-三维网线图绘制" class="headerlink" title="1-2 三维网线图绘制"></a>1-2 三维网线图绘制</h3><p>MATLAB提供的<strong>函数mesh用来绘制三维网线图</strong>。</p>
+<p><strong>该命令可以绘出在某一区间内完整的曲面</strong>，而不是单根曲线。其基本调用格式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mesh(x,y,z)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>根据矩阵x, y和z绘制彩色的空间三维网线图。x, y和z中对应的元素为三维空间上的点，点与点之间用线连接。其中网线的颜色随网点高度的改变而改变。</p>
+</blockquote>
+<p>在绘制二元函数$z&#x3D;f(x, y)$的三维网线时</p>
+<p><strong>首先应通过$[x,y]&#x3D;meshgrid(x, y)$语句在xy平面上建立网格坐标</strong>，然后利用x和y计算每一个网格点上z坐标的大小，该坐标就定义了曲面上的点。最后由$mesh(z)$命令完成三维网线图的绘制。</p>
+<h4 id="1-2-1-example-绘制-z-x3D-x-e-x-2-y-2"><a href="#1-2-1-example-绘制-z-x3D-x-e-x-2-y-2" class="headerlink" title="1-2-1 example:绘制$z&#x3D;x e^{-x^2 - y^2} $"></a>1-2-1 example:绘制$z&#x3D;x e^{-x^2 - y^2} $</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; x=-<span class="number">2</span>:<span class="number">0.2</span>:<span class="number">2</span>;</span><br><span class="line">&gt;&gt; y=x;</span><br><span class="line">&gt;&gt; [x,y]=meshgrid(x,y);</span><br><span class="line">&gt;&gt; z=x.*exp(-x.^<span class="number">2</span>)-y.^<span class="number">2</span>;</span><br><span class="line">&gt;&gt; mesh(x,y,z);</span><br><span class="line">&gt;&gt; z=x.*exp(-x.^<span class="number">2</span>-y.^<span class="number">2</span>);</span><br><span class="line">&gt;&gt; mesh(x,y,z);</span><br><span class="line">&gt;&gt; </span><br></pre></td></tr></table></figure>
+<div align=center>
+<img src="https://e.im5i.com/2021/08/06/1EdMQ.png" alt="1EdMQ.png" border="0" />
+</div>
+
+<p>meshz函数在mesh函数的基础上增加了绘制边界面的功能，其调用格式与mesh一样。图12.3是运行$meshz(x, y, z)$的结果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; x=-<span class="number">2</span>:<span class="number">0.2</span>:<span class="number">2</span>;</span><br><span class="line">&gt;&gt; y=x;</span><br><span class="line">&gt;&gt; [x,y]=meshgrid(x,y);</span><br><span class="line">&gt;&gt; z=x.*exp(-x.^<span class="number">2</span>)-y.^<span class="number">2</span>;</span><br><span class="line">&gt;&gt; mesh(x,y,z);</span><br><span class="line">&gt;&gt; z=x.*exp(-x.^<span class="number">2</span>-y.^<span class="number">2</span>);</span><br><span class="line">&gt;&gt; meshz(x,y,z)</span><br></pre></td></tr></table></figure>
+<div align=center>
+<img src="https://e.im5i.com/2021/08/06/1Eg5h.png" alt="1Eg5h.png" border="0" />
+</div>
+
+<h4 id="1-2-1-example-绘制-z-x3D-x-e-x-2-y-2-的等高线图"><a href="#1-2-1-example-绘制-z-x3D-x-e-x-2-y-2-的等高线图" class="headerlink" title="1-2-1 example:绘制$z&#x3D;x e^{-x^2 - y^2} $的等高线图"></a>1-2-1 example:绘制$z&#x3D;x e^{-x^2 - y^2} $的等高线图</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; x=-<span class="number">2</span>:<span class="number">0.2</span>:<span class="number">2</span>;</span><br><span class="line">&gt;&gt; y=x;</span><br><span class="line">&gt;&gt; [x,y]=meshgrid(x,y);</span><br><span class="line">&gt;&gt; z=x.*exp(-x.^<span class="number">2</span>)-y.^<span class="number">2</span>;</span><br><span class="line">&gt;&gt; mesh(x,y,z);</span><br><span class="line">&gt;&gt; z=x.*exp(-x.^<span class="number">2</span>-y.^<span class="number">2</span>);</span><br><span class="line">&gt;&gt; meshc(x,y,z)</span><br></pre></td></tr></table></figure>
+<div align=center>
+<img src="https://e.im5i.com/2021/08/06/1EYsy.png" alt="1EYsy.png" border="0" />
+</div>
+
+<h3 id="1-3-曲面图的绘制"><a href="#1-3-曲面图的绘制" class="headerlink" title="1-3 曲面图的绘制"></a>1-3 曲面图的绘制</h3><p>在三维网线上，对网线之间的网线元进行颜色填充就成了三维曲面图。MATLAB提供的surf函数具有这样的功能。其调用格式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">surf(x,y,z)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最常用的曲面图调用格式，<strong>绘制由3个矩阵所指定的带色参数的网状表面图</strong>，轴的刻度决定于x、y、z的范围，或当前对轴的设定，颜色与网的高度成正比。</p>
+</blockquote>
+<h4 id="1-3-1-example-z-x3D-x-2-y-2-绘制曲面图"><a href="#1-3-1-example-z-x3D-x-2-y-2-绘制曲面图" class="headerlink" title="1-3-1 example:$z&#x3D;x^2+y^2$ 绘制曲面图"></a>1-3-1 example:$z&#x3D;x^2+y^2$ 绘制曲面图</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; x=-<span class="number">5</span>:<span class="number">5</span>;</span><br><span class="line">&gt;&gt; y=x;</span><br><span class="line">&gt;&gt; [x,y]=meshgrid(x,y);</span><br><span class="line">&gt;&gt; z=x.^<span class="number">2</span>+y.^<span class="number">2</span>;</span><br><span class="line">&gt;&gt; surf(x,y,z);</span><br><span class="line">&gt;&gt; hold on;</span><br><span class="line">&gt;&gt; colormap(hot) </span><br><span class="line">&gt;&gt; stem3(x,y,z,<span class="string">&#x27;bo-.&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<div align=center>
+<img src="https://e.im5i.com/2021/08/06/1EsRX.png" alt="1EsRX.png" border="0" />
+</div>
+
+<p>与mesh函数类似，与surf函数对应的也有surfl和surfc函数，surfl函数在绘制好的曲面上基于当前调色板颜色进行光照处理，surfc函数在绘制好的曲面图下加等高线。将范例12-4中的surf(x, y, z)分别替换为surfl(x, y, z)和surfc(x, y, z)后运行程序的结果如图所示。</p>
+<div align=center>
+<img src="https://e.im5i.com/2021/08/06/1Epdf.png" alt="1Epdf.png" border="0" />
+</div>
+
+<h2 id="2-三维隐函数的绘制"><a href="#2-三维隐函数的绘制" class="headerlink" title="2 三维隐函数的绘制"></a>2 三维隐函数的绘制</h2><blockquote>
+<p>利用MATLAB的等值面函数isosurface，并在patch函数的配合之下就可以轻松完成</p>
+</blockquote>
+<h3 id="2-1-isosurface-等值面函数"><a href="#2-1-isosurface-等值面函数" class="headerlink" title="2-1 isosurface 等值面函数"></a>2-1 isosurface 等值面函数</h3><p>调用格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fv=isosurface(X, Y, Z, V, isovalue)。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>返回某个等值面（由isovalue指定）的表面（faces）和顶点（vertices）数据</strong>，存放在结构体fv中（fv由vertices、faces两个域构成）。<br>X、Y和Z的取值构成立体空间的一些栅格节点，V对应的是这些栅格点上的函数值数据。<br>如果是画隐函数v&#x3D;f(x, y,z)&#x3D;0的三维图形，则等值面的数值为isovalue&#x3D;0。</p>
+</blockquote>
+<h3 id="2-2-patch-函数"><a href="#2-2-patch-函数" class="headerlink" title="2-2 patch 函数"></a>2-2 patch 函数</h3><p>调用格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">patch(x,y,c)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>此格式以平面坐标（X, Y）为顶点，构造平面多边形，C是RGB颜色向量。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">patch(x,y,z,c)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>此格式以空间三维坐标(X, Y, Z)为顶点，构造空间三维曲面，C是RGB颜色向量。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">patch(fv)</span><br></pre></td></tr></table></figure>
+
+<p>此格式通过包含vertices、faces两个域的结构体fv来构造三维曲面，fv可以直接由等值面函数isosurface得到，例如patch(isosurface(X, Y, Z, V,0))。</p>
+<h3 id="2-3-绘制隐函数步骤"><a href="#2-3-绘制隐函数步骤" class="headerlink" title="2-3 绘制隐函数步骤"></a>2-3 绘制隐函数步骤</h3><ol>
+<li>坐标范围确定；</li>
+<li>使用meshgrid函数产生网格点；</li>
+<li>隐函数定义，可利用@符号获取其函数句柄，实现对函数的操作；</li>
+<li>计算坐标空间范围内的格点函数值val；</li>
+<li>调用p&#x3D;isosurface（x, y, z, val,0）函数计算隐函数等值点的位置并返回到p；</li>
+<li>调用patch函数对曲面进行修饰</li>
+</ol>
+<h3 id="2-4-example：绘制-f-x-y-z-x3D-x-2-y-2-z-2-1-x3D-0"><a href="#2-4-example：绘制-f-x-y-z-x3D-x-2-y-2-z-2-1-x3D-0" class="headerlink" title="2-4 example：绘制 $f(x,y,z)&#x3D;x^2+y^2+z^2-1&#x3D;0$"></a>2-4 example：绘制 $f(x,y,z)&#x3D;x^2+y^2+z^2-1&#x3D;0$</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;&gt; clear;</span><br><span class="line">&gt;&gt; xlimit=[-<span class="number">2</span> <span class="number">2</span>];</span><br><span class="line">&gt;&gt; ylimit=[-<span class="number">2</span> <span class="number">2</span>];</span><br><span class="line">&gt;&gt; zlimit=[-<span class="number">2</span> <span class="number">2</span>];</span><br><span class="line">&gt;&gt; gd=[<span class="number">30</span>,<span class="number">30</span>,<span class="number">30</span>];%设置三个坐标轴的格点数，越多绘制出来的越精细。</span><br><span class="line">&gt;&gt; f=@(x,y,z) x.^<span class="number">2</span>+y.^<span class="number">2</span>+z.^<span class="number">2</span>-<span class="number">1</span> %定义隐函数表达式如果不含有某个变量，那就要用<span class="number">0</span>*y之类表示，</span><br><span class="line"></span><br><span class="line">f = </span><br><span class="line"></span><br><span class="line">    @(x,y,z)x.^<span class="number">2</span>+y.^<span class="number">2</span>+z.^<span class="number">2</span>-<span class="number">1</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; xlinspace(xlimit(<span class="number">1</span>),xlimit(<span class="number">2</span>),gd(<span class="number">1</span>));%定义x变量的向量；</span><br><span class="line">未定义函数或变量 <span class="string">&#x27;xlinspace&#x27;</span>。</span><br><span class="line"> </span><br><span class="line">是不是想输入:</span><br><span class="line">&gt;&gt; x=linspace(xlimit(<span class="number">1</span>),xlimit(<span class="number">2</span>),gd(<span class="number">1</span>));%定义x变量的向量；</span><br><span class="line">&gt;&gt; y=linspace(ylimit(<span class="number">1</span>),ylimit(<span class="number">2</span>),gd(<span class="number">2</span>));%定义x变量的向量；</span><br><span class="line">&gt;&gt; z=linspace(zlimit(<span class="number">1</span>),zlimit(<span class="number">2</span>),gd(<span class="number">3</span>));%定义x变量的向量；</span><br><span class="line">&gt;&gt; [x.y,z]=meshgrid(x,y,z);</span><br><span class="line">字段赋值赋给非结构体数组对象。</span><br><span class="line"> </span><br><span class="line">&gt;&gt; [x,y,z]=meshgrid(x,y,z);</span><br><span class="line">&gt;&gt; val=f(x,y,z);%根据网格点计算函数值</span><br><span class="line">&gt;&gt; [f,v]=isosurface(x,y,z,val,<span class="number">0</span>);%isosurface()利用等值点绘制曲面</span><br><span class="line">&gt;&gt;p=patch(<span class="string">&#x27;Faces&#x27;</span>,f,<span class="string">&#x27;Vertices&#x27;</span>,v,<span class="string">&#x27;CData&#x27;</span>,v(:,<span class="number">3</span>),<span class="string">&#x27;facecolor&#x27;</span>,<span class="string">&#x27;none&#x27;</span>,<span class="string">&#x27;Edgecolor&#x27;</span>,<span class="string">&#x27;flat&#x27;</span>)</span><br><span class="line">&gt;&gt; grid on;</span><br><span class="line">&gt;&gt; view(<span class="number">3</span>)</span><br><span class="line">&gt;&gt; </span><br></pre></td></tr></table></figure>
+
+<h2 id="3-习题"><a href="#3-习题" class="headerlink" title="3 习题"></a>3 习题</h2><ol>
+<li>用plot，fplot绘制函数$y&#x3D;cos(tan x)$的图形。</li>
+<li>用eplot绘制摆线：</li>
+</ol>
+<p>$$<br>\begin{align}<br>x &amp;&#x3D; a(t-sint)\<br>y &amp;&#x3D;a(1-cost)<br>\t &amp; \in [0,2\pi]<br>\end{align}<br>$$</p>
+<p>的图形。<br>3. 用plot绘制阿基米德螺线$r&#x3D;aθ$和三叶玫瑰线$r&#x3D;acos(3θ)$</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=-<span class="number">0.5</span>*pi:pi/<span class="number">100</span>:<span class="number">0.5</span>*pi;</span><br><span class="line">y=cos(tan(x));</span><br><span class="line">plot(x,y)</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://macimg.com/image/1V7pf"><img src="https://e.im5i.com/2021/08/08/1V7pf.png" alt="1V7pf.png" border="0" /></a></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/020%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    二维绘图
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/019%20%E5%9B%BE%E5%BD%A2%E5%8F%A5%E6%9F%84/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">图形句柄</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            覃国铭 &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

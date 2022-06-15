@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>数组和矩阵的操作(上) | AKSOAM blog</title>
+    
+    
+        <meta name="keywords" content="matlab" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="数组是MATLAB数据进行存储和处理的基本形式。 矩阵是特殊形式的数组。数组与矩阵的操作是MATLAB语言的基础与特色所在 1. 数组（矩阵)的生成1.1 直接生成矩阵的生成可以通过在方括号[ ]中输入元素实现，不同行之间要用分号隔开，不同列用空格分开 ex12345% 生成一个2×3矩阵x&#x3D;[1 2 3 ;4 5 6 ]% 用冒号表达式x1&#x3D;[1:3;4:6] 1.2 函数生成数组&#x2F;用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组和矩阵的操作(上)">
+<meta property="og:url" content="http://example.com/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/017%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8A/index.html">
+<meta property="og:site_name" content="AKSOAM blog">
+<meta property="og:description" content="数组是MATLAB数据进行存储和处理的基本形式。 矩阵是特殊形式的数组。数组与矩阵的操作是MATLAB语言的基础与特色所在 1. 数组（矩阵)的生成1.1 直接生成矩阵的生成可以通过在方括号[ ]中输入元素实现，不同行之间要用分号隔开，不同列用空格分开 ex12345% 生成一个2×3矩阵x&#x3D;[1 2 3 ;4 5 6 ]% 用冒号表达式x1&#x3D;[1:3;4:6] 1.2 函数生成数组&#x2F;用">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://e.im5i.com/2021/07/23/NB1vs.png">
+<meta property="article:published_time" content="2021-07-23T09:44:04.000Z">
+<meta property="article:modified_time" content="2022-06-15T05:27:00.707Z">
+<meta property="article:author" content="覃国铭">
+<meta property="article:tag" content="matlab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://e.im5i.com/2021/07/23/NB1vs.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="AKSOAM blog" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">AKSOAM blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">AKSOAM1037</h2>
+            <h3 id="title">A Student of HUST</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Wuhan, China</span>
+            <a id="follow" target="_blank" href="https://space.bilibili.com/470140717">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                21
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                4
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/qinguoming/qinguoming.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Abaques
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            basic
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Abaques/%E6%9C%ACwiki%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">本wiki第一篇博客</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            matlab
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            基础知识
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/001%20MATLAB-plotyy-%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">plotyy()和plot()</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/003%20matlab-%E5%8F%8D%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/">反三角函数</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/007%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%B8%80/">程序流程控制结构(一)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/005%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%BA%8C/">程序流程控制结构(二)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/006%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%B8%89/">程序流程控制结构(三)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/014%20%E5%87%BD%E6%95%B0%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%B0%83%E7%94%A8/">函数文件的定义和调用</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/004%20matlab-%E7%9F%A9%E9%98%B5%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84%E5%85%B3%E7%B3%BB/">矩阵和数组的关系</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/012%20%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%92%8C%E5%87%BD%E6%95%B0%E5%8F%98%E9%87%8F%E6%80%BB%E7%BB%93/">函数参数和函数变量</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/013%20%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/">函数类型及函数调用方法</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/008%20%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a></li>  <li class="file active"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/017%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8A/">数组和矩阵的操作(上)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/018%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8B/">数组和矩阵的操作(下)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/015%20%E7%BB%98%E5%88%B6%E7%A6%BB%E6%95%A3%E6%95%B0%E6%8D%AE/">绘制离散数据</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/009%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-1/">符号计算1</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/010%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-2/">符号计算_7.3</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/011%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-3/">符号计算 7-4</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/019%20%E5%9B%BE%E5%BD%A2%E5%8F%A5%E6%9F%84/">图形句柄</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/021%20%E4%B8%89%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">三维图形绘制</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/020%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">二维绘图</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">Welcome AKSOAM's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>archives</span></h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">17</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-matlab/baisc 知识/017 数组和矩阵的操作-上" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/matlab/">matlab</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/matlab/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/matlab/" rel="tag">matlab</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/017%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8A/">
+            <time datetime="2021-07-23T09:44:04.000Z" itemprop="datePublished">2021-07-23</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            数组和矩阵的操作(上)
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p><code>数组</code>是MATLAB数据进行存储和处理的基本形式。</p>
+<p>矩阵是特殊形式的数组。数组与矩阵的操作是MATLAB语言的基础与特色所在</p>
+<h2 id="1-数组（矩阵-的生成"><a href="#1-数组（矩阵-的生成" class="headerlink" title="1. 数组（矩阵)的生成"></a>1. 数组（矩阵)的生成</h2><h3 id="1-1-直接生成"><a href="#1-1-直接生成" class="headerlink" title="1.1 直接生成"></a>1.1 直接生成</h3><p><mark>矩阵的生成可以通过在方括号[ ]中输入元素实现，不同行之间要用分号隔开，不同列用空格分开</mark></p>
+<h4 id="ex"><a href="#ex" class="headerlink" title="ex"></a>ex</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">% 生成一个<span class="number">2</span>×<span class="number">3</span>矩阵</span><br><span class="line">x=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> ;<span class="number">4</span> <span class="number">5</span> <span class="number">6</span> ]</span><br><span class="line"></span><br><span class="line">% 用冒号表达式</span><br><span class="line">x1=[<span class="number">1</span>:<span class="number">3</span>;<span class="number">4</span>:<span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-函数生成数组-x2F-用特殊函数"><a href="#1-2-函数生成数组-x2F-用特殊函数" class="headerlink" title="1.2 函数生成数组&#x2F;用特殊函数"></a>1.2 函数生成数组&#x2F;用特殊函数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">% 函数生成数组/用特殊函数</span><br><span class="line">x2=zeros(<span class="number">2</span>,<span class="number">3</span>)%2X3全零矩阵</span><br><span class="line"></span><br><span class="line">x3=eye(<span class="number">3</span>,<span class="number">3</span>)%单位矩阵</span><br><span class="line"></span><br><span class="line">x4=rand(<span class="number">3</span>,<span class="number">3</span>)%均匀分布随机矩阵</span><br><span class="line"></span><br><span class="line">x5=randn(<span class="number">3</span>,<span class="number">2</span>)%正态分布随机矩阵</span><br></pre></td></tr></table></figure>
+<h4 id="1-3-特殊函数"><a href="#1-3-特殊函数" class="headerlink" title="1.3 特殊函数"></a>1.3 特殊函数</h4><img src="https://e.im5i.com/2021/07/23/NB1vs.png" alt="NB1vs.png" border="0" />
+
+<h2 id="2-行向量"><a href="#2-行向量" class="headerlink" title="2. 行向量"></a>2. 行向量</h2><h3 id="利用冒号表达式可以产生行向量"><a href="#利用冒号表达式可以产生行向量" class="headerlink" title="利用冒号表达式可以产生行向量"></a>利用冒号表达式可以产生行向量</h3><p>一般格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e1:e2:e3</span><br></pre></td></tr></table></figure>
+
+<p>e1为初始值，e2为步长，e3为终止值。冒号表达式可产生一个由e1开始到e3结束、以步长e2自增的行向量</p>
+<h3 id="linspace函数产生行向量"><a href="#linspace函数产生行向量" class="headerlink" title="linspace函数产生行向量"></a>linspace函数产生行向量</h3><p>格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linspace(a,b,n)</span><br></pre></td></tr></table></figure>
+
+<p>a和b是生成向量的第一个和最后一个元素，n是元素总数。当n省略时，自动产生100个元素。显然，linspace（a, b, n）与a:（b-a）&#x2F;(n-1):b等价。</p>
+<h3 id="ex-1"><a href="#ex-1" class="headerlink" title="ex"></a>ex</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">%冒号expression</span><br><span class="line">x6=<span class="number">0</span>:<span class="number">100</span></span><br><span class="line">x7=<span class="number">0</span>:<span class="number">2</span>:<span class="number">100</span></span><br><span class="line">x8=linspace(<span class="number">0</span>,<span class="number">100</span>,<span class="number">101</span>);%生成行向量</span><br><span class="line">x9=<span class="number">0</span>:<span class="number">100</span>;</span><br><span class="line"><span class="keyword">if</span> x9==x8</span><br><span class="line">    <span class="title function_">disp</span><span class="params">(<span class="string">&#x27;linspace(0,100,101)等价于0:100&#x27;</span>)</span></span><br><span class="line">end</span><br><span class="line">x10=linspace(<span class="number">0</span>,pi,<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="3-基本的数组操作"><a href="#3-基本的数组操作" class="headerlink" title="3.基本的数组操作"></a>3.基本的数组操作</h2><p>基本的数组操作包括</p>
+<blockquote>
+<p>数组元素的寻址，查找和排序<br>对整个矩阵的转置、重排、拆分、连接和变换</p>
+</blockquote>
+<h3 id="3-1-数组元素的寻址"><a href="#3-1-数组元素的寻址" class="headerlink" title="3.1 数组元素的寻址"></a>3.1 数组元素的寻址</h3><p>数组中包含多个元素，因此对数组的单个元素或多个元素进行访问操作时，需要对数组进行寻址操作。</p>
+<p>在MATLAB中，<code>数组寻址通过对数组下标的访问实现</code></p>
+<p>MATLAB中提供<code>end参数表示数组的末尾</code></p>
+<p><mark>MATLAB在内存中以列的方向保存二维数组，对于一个m行n列的数组，i、j分别表示行、列的索引，二维数组的寻址可表示为A(i,j)；如果采用单下标寻址，则数组中元素的下标k表示为( j-1)*m+i<br></mark></p>
+<h4 id="ex-code"><a href="#ex-code" class="headerlink" title="ex code"></a>ex code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">%一维数组的寻址</span><br><span class="line">x11=randn(<span class="number">1</span>,<span class="number">6</span>);</span><br><span class="line">x11(<span class="number">1</span>,<span class="number">5</span>)</span><br><span class="line">x11(<span class="number">5</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="title function_">x11</span><span class="params">(<span class="number">5</span>)</span>==x11(<span class="number">1</span>,<span class="number">5</span>)</span><br><span class="line">    disp(<span class="string">&#x27;*****&#x27;</span>)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">%二维数组的寻址</span><br><span class="line">x12=randn(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">x12(<span class="number">6</span>)</span><br><span class="line">x12(<span class="number">3</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="title function_">x12</span><span class="params">(<span class="number">6</span>)</span>==x12(<span class="number">3</span>,<span class="number">2</span>)</span><br><span class="line">    disp(<span class="string">&#x27;++++++&#x27;</span>)</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-元素查找"><a href="#3-2-元素查找" class="headerlink" title="3.2 元素查找"></a>3.2 元素查找</h3><p>MATLAB提供数组查找函数find，<mark>它能够查找数组中的非零数组元素，并返回其在整个数组中的索引值</mark></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">%find函数</span><br><span class="line">ind=find(X)</span><br><span class="line">%找出矩阵X中的所有非零元素，</span><br><span class="line">%并将这些元素的线性索引值（linear indices：按列）</span><br><span class="line">%返回到向量ind中。</span><br><span class="line">%如果X是一个行向量，则ind是一个行向量；否则，ind是一个列向量</span><br><span class="line">%如果X不含非零元素或是一个空矩阵，则ind是一个空矩阵。</span><br><span class="line"></span><br><span class="line">ind=find(X,k)</span><br><span class="line"></span><br><span class="line">ind=find(X,k,<span class="string">&#x27;first&#x27;</span>)</span><br><span class="line"></span><br><span class="line">%返回第一个非零元素k的索引值。</span><br><span class="line">%k必须是一个正数，但是它可以是任何数字数值类型</span><br><span class="line"></span><br><span class="line">ind=find(X,k,<span class="string">&#x27;last&#x27;</span>)</span><br><span class="line">% 返回最后一个非零元素k的索引值。</span><br><span class="line">[i,j]=find(X,...)</span><br><span class="line">返回矩阵X中非零元素的行和列的索引值。</span><br><span class="line">这个语法对于处理稀疏矩阵尤其有用。</span><br><span class="line"></span><br><span class="line">[i,j,v]=find(...)</span><br><span class="line">%返回X中非零元素的一个列或行向量v，同时返回行和列的索引值。</span><br><span class="line">%如果X是一个逻辑表示，则v是一个逻辑矩阵。</span><br><span class="line">%输出向量v包含通过评估X表示得到的逻辑矩阵的非零元素</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>indices表示非零元素的下标值，<br>i、j分别表示行下标向量和列下标向量，<br>v表示非零元素向量</p>
+</blockquote>
+<h4 id="ex-code-1"><a href="#ex-code-1" class="headerlink" title="ex code"></a>ex code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">x13=[<span class="number">1</span> <span class="number">2</span> <span class="number">0</span> <span class="number">1</span>;</span><br><span class="line">     <span class="number">0</span> <span class="number">2</span> <span class="number">1</span> <span class="number">1</span>;</span><br><span class="line">     <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">ind1=find(x13);</span><br><span class="line">[i,j]=find(x13)</span><br><span class="line">length(i)</span><br><span class="line"><span class="keyword">for</span> n=length(i):-<span class="number">1</span>:<span class="number">1</span></span><br><span class="line">    plot(i(n),j(n),<span class="string">&#x27;*r&#x27;</span>)</span><br><span class="line">    hold on;</span><br><span class="line">    end</span><br><span class="line"><span class="title function_">axis</span><span class="params">([<span class="number">0</span> <span class="number">5</span> <span class="number">0</span> <span class="number">5</span>])</span>;</span><br><span class="line">grid on;</span><br><span class="line">ind2=find(x13==<span class="number">2</span>);</span><br><span class="line">[i,j]=find(x13==<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-元素排序"><a href="#3-3-元素排序" class="headerlink" title="3.3 元素排序"></a>3.3 元素排序</h3><h4 id="sort-函数"><a href="#sort-函数" class="headerlink" title="sort()函数"></a>sort()函数</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">B=sort(A)</span><br><span class="line">B=sort(A,dim)</span><br><span class="line">B=sort(...,mode)</span><br><span class="line">[B,ix]=sort(...)</span><br></pre></td></tr></table></figure>
+<p>B为返回的排序后的数组，A为输入待排序数组，当A为多维数组时，用dim指定需要排序的维数（默认为1）; mode为排序的方式，可以取值为ascend和descend，分别表示升序和降序，默认为升序；IX用于存储排序后的下标数组。</p>
+<h4 id="ex-code-2"><a href="#ex-code-2" class="headerlink" title="ex code"></a>ex code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">x14=[<span class="number">3</span> <span class="number">2</span> <span class="number">0</span>;</span><br><span class="line">    -<span class="number">5</span> <span class="number">0</span> <span class="number">7</span>;</span><br><span class="line">    <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>];</span><br><span class="line">[i,j,v]=find((x14&gt;<span class="number">2</span>)&amp;(x14&lt;<span class="number">9</span>))</span><br><span class="line">% [i,j,v]=find(x14)</span><br><span class="line">sort(x14,<span class="number">1</span>,<span class="string">&#x27;descend&#x27;</span>) %dim=<span class="number">1</span>，按照列的方向排序</span><br><span class="line">x15=sort(x14,<span class="number">2</span>) ;%dim=<span class="number">2</span>，按照列的方向排序</span><br><span class="line">[x15,ix]=sort(x14,<span class="number">1</span>,<span class="string">&#x27;descend&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4矩阵转置"><a href="#3-4矩阵转置" class="headerlink" title="3.4矩阵转置"></a>3.4矩阵转置</h3><p>对矩阵A的转置为A’。</p>
+<p>注意，<mark>当A为复数矩阵时，则A’表示共轭转置，如果要实现非共轭转置，则应采用A.’</mark></p>
+<h4 id="code"><a href="#code" class="headerlink" title="code"></a>code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">%转置操作</span><br><span class="line"></span><br><span class="line">x16=[<span class="number">100</span> <span class="number">200</span> <span class="number">300</span>]</span><br><span class="line">x16<span class="string">&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%复数矩阵的转置——共轭转置</span></span><br><span class="line"><span class="string">x17=[1+1i,2+3i,1-2i]</span></span><br><span class="line"><span class="string">x17&#x27;</span></span><br><span class="line">%非共轭矩阵转置</span><br><span class="line">x17.<span class="string">&#x27;</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-矩阵重排"><a href="#3-5-矩阵重排" class="headerlink" title="3.5 矩阵重排"></a>3.5 矩阵重排</h3><h4 id="code-1"><a href="#code-1" class="headerlink" title="code"></a>code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">%矩阵重排</span><br><span class="line">x18=[<span class="number">1</span> <span class="number">2</span>;</span><br><span class="line">    <span class="number">3</span> <span class="number">4</span>;</span><br><span class="line">    <span class="number">5</span> <span class="number">6</span>]</span><br><span class="line">x19=[<span class="number">1</span>,<span class="number">2</span>;<span class="number">3</span>,<span class="number">4</span>;<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"></span><br><span class="line">x20=x19(:)</span><br><span class="line"></span><br><span class="line">x21=reshape(x19,<span class="number">2</span>,<span class="number">3</span>)% 变换前后元素个数要一致</span><br><span class="line"></span><br><span class="line">x22=zeros(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">x22(:)=x19(<span class="number">2</span>:<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="3-6-矩阵索引转换"><a href="#3-6-矩阵索引转换" class="headerlink" title="3.6 矩阵索引转换"></a>3.6 矩阵索引转换</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">%索引转换</span><br><span class="line">x23=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>;</span><br><span class="line">    <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>];</span><br><span class="line"></span><br><span class="line">x23(<span class="number">3</span>)</span><br><span class="line">% ans =</span><br><span class="line">%      <span class="number">2</span></span><br><span class="line"></span><br><span class="line">%下标——subscript</span><br><span class="line">%序号——index</span><br><span class="line">%sub2ind(下标转序号)和ind2sub（序号转下标）函数</span><br><span class="line">[i,j]=find(x23==<span class="number">3</span>);%找到元素<span class="number">3</span>的下标subscript</span><br><span class="line"><span class="title function_">sub2ind</span><span class="params">(size(x23)</span>,i,j)%把下标转为序号index</span><br><span class="line"></span><br><span class="line">%size(x23)返回矩阵x23的行数，列数[i,j]</span><br><span class="line">%length(x23)为函数行数，列数的较大值，即max(size(x23))</span><br><span class="line">ndims(x23)%ndims(x23)返回矩阵维数,二维数组</span><br><span class="line">% ans =</span><br><span class="line">%      <span class="number">2</span></span><br></pre></td></tr></table></figure>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/018%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    数组和矩阵的操作(下)
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/008%20%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">错误处理</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            覃国铭 &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

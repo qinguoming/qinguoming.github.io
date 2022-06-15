@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>数组和矩阵的操作(下) | AKSOAM blog</title>
+    
+    
+        <meta name="keywords" content="matlab" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="1. 数组的运算数组运算是指数组对应元素之间的运算，也称点运算 1.1 数值运算 取随机数  利用取整和求余函数，可得到整数或精确到小数点后的第几位。 1234%生成随机数x32&#x3D;100-round(20*rand(1,1))%产生[-100 100 ]之间的随机整数x32&#x3D;100-round(20*rand(1,1))&#x2F;100 %产生[-100 100 ]之间的随机数，精确到0.01  1.2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组和矩阵的操作(下)">
+<meta property="og:url" content="http://example.com/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/018%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8B/index.html">
+<meta property="og:site_name" content="AKSOAM blog">
+<meta property="og:description" content="1. 数组的运算数组运算是指数组对应元素之间的运算，也称点运算 1.1 数值运算 取随机数  利用取整和求余函数，可得到整数或精确到小数点后的第几位。 1234%生成随机数x32&#x3D;100-round(20*rand(1,1))%产生[-100 100 ]之间的随机整数x32&#x3D;100-round(20*rand(1,1))&#x2F;100 %产生[-100 100 ]之间的随机数，精确到0.01  1.2">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://e.im5i.com/2021/07/24/oxFxA.png">
+<meta property="article:published_time" content="2021-07-24T14:08:19.000Z">
+<meta property="article:modified_time" content="2022-06-15T05:27:05.056Z">
+<meta property="article:author" content="覃国铭">
+<meta property="article:tag" content="matlab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://e.im5i.com/2021/07/24/oxFxA.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="AKSOAM blog" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">AKSOAM blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">AKSOAM1037</h2>
+            <h3 id="title">A Student of HUST</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Wuhan, China</span>
+            <a id="follow" target="_blank" href="https://space.bilibili.com/470140717">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                21
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                4
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/qinguoming/qinguoming.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Abaques
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            basic
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Abaques/%E6%9C%ACwiki%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">本wiki第一篇博客</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            matlab
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            基础知识
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/001%20MATLAB-plotyy-%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">plotyy()和plot()</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/003%20matlab-%E5%8F%8D%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/">反三角函数</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/007%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%B8%80/">程序流程控制结构(一)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/005%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%BA%8C/">程序流程控制结构(二)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/006%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%B8%89/">程序流程控制结构(三)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/014%20%E5%87%BD%E6%95%B0%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%B0%83%E7%94%A8/">函数文件的定义和调用</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/004%20matlab-%E7%9F%A9%E9%98%B5%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84%E5%85%B3%E7%B3%BB/">矩阵和数组的关系</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/012%20%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%92%8C%E5%87%BD%E6%95%B0%E5%8F%98%E9%87%8F%E6%80%BB%E7%BB%93/">函数参数和函数变量</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/013%20%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/">函数类型及函数调用方法</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/008%20%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/017%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8A/">数组和矩阵的操作(上)</a></li>  <li class="file active"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/018%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8B/">数组和矩阵的操作(下)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/015%20%E7%BB%98%E5%88%B6%E7%A6%BB%E6%95%A3%E6%95%B0%E6%8D%AE/">绘制离散数据</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/009%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-1/">符号计算1</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/010%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-2/">符号计算_7.3</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/011%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-3/">符号计算 7-4</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/019%20%E5%9B%BE%E5%BD%A2%E5%8F%A5%E6%9F%84/">图形句柄</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/021%20%E4%B8%89%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">三维图形绘制</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/020%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">二维绘图</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">Welcome AKSOAM's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>archives</span></h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">17</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-matlab/baisc 知识/018 数组和矩阵的操作-下" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/matlab/">matlab</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/matlab/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/matlab/" rel="tag">matlab</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/018%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8B/">
+            <time datetime="2021-07-24T14:08:19.000Z" itemprop="datePublished">2021-07-24</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            数组和矩阵的操作(下)
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h2 id="1-数组的运算"><a href="#1-数组的运算" class="headerlink" title="1. 数组的运算"></a>1. 数组的运算</h2><p>数组运算是指数组对应元素之间的运算，也称点运算</p>
+<h3 id="1-1-数值运算"><a href="#1-1-数值运算" class="headerlink" title="1.1 数值运算"></a>1.1 数值运算</h3><ul>
+<li>取随机数</li>
+</ul>
+<p>利用取整和求余函数，可得到整数或精确到小数点后的第几位。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%生成随机数</span><br><span class="line">x32=<span class="number">100</span>-round(<span class="number">20</span>*rand(<span class="number">1</span>,<span class="number">1</span>))%产生[-<span class="number">100</span> <span class="number">100</span> ]之间的随机整数</span><br><span class="line"></span><br><span class="line">x32=<span class="number">100</span>-round(<span class="number">20</span>*rand(<span class="number">1</span>,<span class="number">1</span>))/<span class="number">100</span> %产生[-<span class="number">100</span> <span class="number">100</span> ]之间的随机数，精确到<span class="number">0.01</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-向量的点积叉积混合积"><a href="#1-2-向量的点积叉积混合积" class="headerlink" title="1.2 向量的点积叉积混合积"></a>1.2 向量的点积叉积混合积</h3><h4 id="1-2-1-点积"><a href="#1-2-1-点积" class="headerlink" title="1.2.1 点积"></a>1.2.1 点积</h4><p>向量的点积是指两个向量在其中某一个向量方向上的投影的乘积，通常可以用来引申定义向量的模</p>
+<p>点积在数学中，又称数量积（dot product; scalar product），是指接受在实数R上的两个向量并返回一个实数值标量的二元运算。它是欧几里得空间的标准内积。 [1] </p>
+<p>两个向量<code>a = [a1, a2,…, an]和b = [b1, b2,…, bn]</code>的点积定义为：</p>
+<p><code>a·b=a1b1+a2b2+……+anbn</code>。</p>
+<p>使用矩阵乘法并把（纵列）向量当作n×1 矩阵，点积还可以写为：</p>
+<p><code>a·b=（a^T）*b</code>，这里的a^T指示矩阵a的转置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%点积计算</span><br><span class="line">%dot()</span><br><span class="line">dot（a, b）返回向量a和b的数量点积。a和b必须同维。当a和b都为列向量时，dot（a, b）同于a.*b。</span><br><span class="line">dot（a, b, dim）返回向量a和b在维数为dim的点积</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-2-叉积"><a href="#1-2-2-叉积" class="headerlink" title="1.2.2 叉积"></a>1.2.2 叉积</h4><p>在高等数学中，<mark>向量的叉积表示过两相交向量交点的且垂直于两向量所在平面的向量</mark>。在MATLAB中，向量的叉积由<code>cross函数</code>来实现。</p>
+<p>c&#x3D;cross（a, b）返回向量a和b的叉积向量，即c&#x3D;a×b。a和b必须为三维向量。</p>
+<p>c&#x3D;cross（a, b）返回向量a和b的前3位的叉积。</p>
+<p>c&#x3D;cross（a, b, dim）表示当向量a和b为n维数组时，返回a和b的dim维向量的叉积。a和b必须有相同的维数，且size（a, dim）和size（a, dim）必须为3。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=cross(a,b)</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-3-混合积"><a href="#1-2-3-混合积" class="headerlink" title="1.2.3 混合积"></a>1.2.3 混合积</h4><p> dot()函数和cross()函数混用就行，顺序不能错</p>
+<h2 id="2-数组的保存和载入"><a href="#2-数组的保存和载入" class="headerlink" title="2.数组的保存和载入"></a>2.数组的保存和载入</h2><p>MATLAB中提供了内置的把变量保存在文件中的方法，最简单易用的是将数组变量保存为二进制的.mat文件。用户可以通过save命令将工作区中指定的变量存储在.mat文件中。</p>
+<ul>
+<li><h3 id="save"><a href="#save" class="headerlink" title="save"></a>save</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">save &lt;filename&gt; &lt;var1&gt; &lt;var2&gt;....</span><br></pre></td></tr></table></figure>
+<p>把变量存到filename.mat文件中</p>
+</li>
+<li><h3 id="load"><a href="#load" class="headerlink" title="load"></a>load</h3></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load &lt;filename&gt; &lt;var1&gt; &lt;var2&gt;....</span><br></pre></td></tr></table></figure>
+<p>把filename.mat中的变量加载到工作区</p>
+<h2 id="3-矩阵运算"><a href="#3-矩阵运算" class="headerlink" title="3.矩阵运算"></a>3.矩阵运算</h2><h3 id="3-1-加减"><a href="#3-1-加减" class="headerlink" title="3.1 加减"></a>3.1 加减</h3><blockquote>
+<p>条件：<br>矩阵同型或者其中一个是标量</p>
+</blockquote>
+<h3 id="3-2-乘积"><a href="#3-2-乘积" class="headerlink" title="3.2 乘积"></a>3.2 乘积</h3><ol>
+<li>使用<code>*</code>运算符</li>
+<li>其次，矩阵满足矩阵维数的条件：<mark>如果矩阵A是一个m×p矩阵，矩阵B是p×n矩阵，它们可以相乘产生m×n矩阵</mark></li>
+</ol>
+<p>在MATLAB里，<mark>单引号表示复共轭转置，一个点加单引号“.′”表示普通转置</mark></p>
+<h3 id="3-3-矩阵除法"><a href="#3-3-矩阵除法" class="headerlink" title="3.3 矩阵除法"></a>3.3 矩阵除法</h3><ul>
+<li>\”运算符号表示两个矩阵的左除，</li>
+<li>“&#x2F;”表示两个矩阵的右除</li>
+</ul>
+<p>A\B即由Gauss消去法来获得线性方程AX＝B的解X，即X＝A-1B。如果矩阵不是方阵，也可以求出A\B，这时将使用最小二乘法来求取AX＝B中的矩阵X。</p>
+<p>X&#x3D;B&#x2F;A是X*A&#x3D;B的解，对于非奇异方阵A, B&#x2F;A等效为BA-1。</p>
+<ul>
+<li><h4 id="左除"><a href="#左除" class="headerlink" title="左除"></a>左除</h4></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X=A\B就是A*X=B的解</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="右除"><a href="#右除" class="headerlink" title="右除"></a>右除</h4></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X=B/A就是X*A=B的解</span><br></pre></td></tr></table></figure>
+
+<img src="https://e.im5i.com/2021/07/24/oxFxA.png" alt="oxFxA.png" border="0" />
+
+<h2 id="4-点运算"><a href="#4-点运算" class="headerlink" title="4.点运算"></a>4.点运算</h2><p>点运算符有．*、.&#x2F;、.\、.^。两矩阵进行点运算是指它们的对应元素进行相关运算，要求两矩阵的维数相同</p>
+<h2 id="5-矩阵的指数和对数运算"><a href="#5-矩阵的指数和对数运算" class="headerlink" title="5.矩阵的指数和对数运算"></a>5.矩阵的指数和对数运算</h2><p>MATLAB提供了两个专门的函数expm和logm来实现矩阵的指数运算和对数运算。</p>
+<h2 id="6-矩阵的乘方运算和开方运算"><a href="#6-矩阵的乘方运算和开方运算" class="headerlink" title="6.矩阵的乘方运算和开方运算"></a>6.矩阵的乘方运算和开方运算</h2><p>MATLAB中矩阵的乘方可以由符号“^”实现，而矩阵的开方则由sqrtm函数实现</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/015%20%E7%BB%98%E5%88%B6%E7%A6%BB%E6%95%A3%E6%95%B0%E6%8D%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    绘制离散数据
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/017%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8A/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">数组和矩阵的操作(上)</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            覃国铭 &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

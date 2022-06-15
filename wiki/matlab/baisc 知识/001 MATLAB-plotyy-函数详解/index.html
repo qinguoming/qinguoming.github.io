@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>plotyy()和plot() | AKSOAM blog</title>
+    
+    
+        <meta name="keywords" content="matlab" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="plot1 定义plot()——matlab中二维画图的函数，函数返回值是各个线条的句柄。 2 调用格式2.1 plot(y)当y为向量时，是以y的分量为纵坐标，以元素序号为横坐标，用直线依次连接数据点，绘制曲线。若y为实矩阵，则按列绘制每列对应的曲线。 2.2 plot(x,y) 若y和x为同维向量，则以x为横坐标,y为纵坐标绘制连线图。 若x是向量，y是行数或列数与x长度相等的矩阵，则绘制多条">
+<meta property="og:type" content="article">
+<meta property="og:title" content="plotyy()和plot()">
+<meta property="og:url" content="http://example.com/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/001%20MATLAB-plotyy-%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="AKSOAM blog">
+<meta property="og:description" content="plot1 定义plot()——matlab中二维画图的函数，函数返回值是各个线条的句柄。 2 调用格式2.1 plot(y)当y为向量时，是以y的分量为纵坐标，以元素序号为横坐标，用直线依次连接数据点，绘制曲线。若y为实矩阵，则按列绘制每列对应的曲线。 2.2 plot(x,y) 若y和x为同维向量，则以x为横坐标,y为纵坐标绘制连线图。 若x是向量，y是行数或列数与x长度相等的矩阵，则绘制多条">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://e.im5i.com/2021/07/11/RC1fQ.png">
+<meta property="og:image" content="https://e.im5i.com/2021/07/11/RCvhx.png">
+<meta property="og:image" content="https://e.im5i.com/2021/07/11/RCB4q.png">
+<meta property="og:image" content="https://e.im5i.com/2021/07/11/RC30D.png">
+<meta property="article:published_time" content="2021-07-11T09:36:31.000Z">
+<meta property="article:modified_time" content="2022-06-15T05:41:22.875Z">
+<meta property="article:author" content="覃国铭">
+<meta property="article:tag" content="matlab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://e.im5i.com/2021/07/11/RC1fQ.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="AKSOAM blog" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">AKSOAM blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">AKSOAM1037</h2>
+            <h3 id="title">A Student of HUST</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Wuhan, China</span>
+            <a id="follow" target="_blank" href="https://space.bilibili.com/470140717">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                21
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                4
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/qinguoming/qinguoming.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Abaques
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            basic
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Abaques/%E6%9C%ACwiki%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">本wiki第一篇博客</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            matlab
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            基础知识
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/001%20MATLAB-plotyy-%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">plotyy()和plot()</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/003%20matlab-%E5%8F%8D%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/">反三角函数</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/007%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%B8%80/">程序流程控制结构(一)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/005%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%BA%8C/">程序流程控制结构(二)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/006%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%B8%89/">程序流程控制结构(三)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/014%20%E5%87%BD%E6%95%B0%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%B0%83%E7%94%A8/">函数文件的定义和调用</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/004%20matlab-%E7%9F%A9%E9%98%B5%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84%E5%85%B3%E7%B3%BB/">矩阵和数组的关系</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/012%20%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%92%8C%E5%87%BD%E6%95%B0%E5%8F%98%E9%87%8F%E6%80%BB%E7%BB%93/">函数参数和函数变量</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/013%20%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/">函数类型及函数调用方法</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/008%20%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/017%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8A/">数组和矩阵的操作(上)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/018%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8B/">数组和矩阵的操作(下)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/015%20%E7%BB%98%E5%88%B6%E7%A6%BB%E6%95%A3%E6%95%B0%E6%8D%AE/">绘制离散数据</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/009%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-1/">符号计算1</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/010%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-2/">符号计算_7.3</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/011%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-3/">符号计算 7-4</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/019%20%E5%9B%BE%E5%BD%A2%E5%8F%A5%E6%9F%84/">图形句柄</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/021%20%E4%B8%89%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">三维图形绘制</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/020%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">二维绘图</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">Welcome AKSOAM's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>archives</span></h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">17</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-matlab/baisc 知识/001 MATLAB-plotyy-函数详解" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/matlab/">matlab</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/matlab/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/matlab/" rel="tag">matlab</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/001%20MATLAB-plotyy-%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">
+            <time datetime="2021-07-11T09:36:31.000Z" itemprop="datePublished">2021-07-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            plotyy()和plot()
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h1 id="plot"><a href="#plot" class="headerlink" title="plot"></a>plot</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1 定义"></a>1 定义</h2><p>plot()——matlab中二维画图的函数，函数返回值是各个线条的句柄。</p>
+<h2 id="2-调用格式"><a href="#2-调用格式" class="headerlink" title="2 调用格式"></a>2 调用格式</h2><h3 id="2-1-plot-y"><a href="#2-1-plot-y" class="headerlink" title="2.1 plot(y)"></a>2.1 plot(y)</h3><p>当y为向量时，是以y的分量为纵坐标，以元素序号为横坐标，用直线依次连接数据点，绘制曲线。若y为实矩阵，则按列绘制每列对应的曲线。</p>
+<h3 id="2-2-plot-x-y"><a href="#2-2-plot-x-y" class="headerlink" title="2.2 plot(x,y)"></a>2.2 plot(x,y)</h3><ul>
+<li>若y和x为同维向量，则以x为横坐标,y为纵坐标绘制连线图。</li>
+<li>若x是向量，y是行数或列数与x长度相等的矩阵，则绘制多条不同色彩的连线图，x被作为这些曲线的共同横坐标。</li>
+<li>若x和y为同型矩阵，则以x,y对应元素分别绘制曲线，曲线条数等于<mark>矩阵列数</mark>。</li>
+</ul>
+<h3 id="2-3-plot-x1-y1-x2-y2-……"><a href="#2-3-plot-x1-y1-x2-y2-……" class="headerlink" title="2.3 plot(x1,y1,x2,y2,……)"></a>2.3 plot(x1,y1,x2,y2,……)</h3><p>在此格式中，每对x,y必须符合plot(x,y)中的要求，不同对之间没有影响，命令将对每一对x,y绘制曲线。将使用相同的坐标轴绘制多条曲线</p>
+<p>以上三种格式中的x,y都可以是表达式。plot是绘制一维曲线的基本函数，但<mark>在使用此函数之前，须先定义曲线上每一点的x以及y坐标。</mark></p>
+<h3 id="2-4-plot-x1-y1-linespec1-…-xn-yn-linespecn"><a href="#2-4-plot-x1-y1-linespec1-…-xn-yn-linespecn" class="headerlink" title="2.4 plot(x1,y1,linespec1,…,xn,yn,linespecn)"></a>2.4 plot(x1,y1,linespec1,…,xn,yn,linespecn)</h3><p>这种格式允许用户对每条线进行属性设置</p>
+<h3 id="2-5-h-x3D-plot-····"><a href="#2-5-h-x3D-plot-····" class="headerlink" title="2.5 h&#x3D;plot(····)"></a>2.5 h&#x3D;plot(····)</h3><p>这种格式<code>返回由图中各线条的句柄构成的列向量h</code>，即h中的每个元素就是图中一条线的句柄，当绘制多条线时，用户可通过某条线的句柄对该线进行<code>特定的修改</code>。</p>
+<h2 id="3-线条属性设置"><a href="#3-线条属性设置" class="headerlink" title="3 线条属性设置"></a>3 线条属性设置</h2><p>带属性的格式中。增加了线属性的设置，这些属性包括线型设置，绘制线条时是否使用标记符号以及使用什么样的标记符号，线条的颜色、粗细等等。</p>
+<p>在plot函数中，无论是线型、标记符号还是颜色，具体制定时，都是以<code>字符串的形式</code>出现.</p>
+<p>字符串中的颜色可以以<code>任何顺序</code>出现，用户也可以省略其中的一个或多个选项。如果用户省略了线条样式，但制定了标记字符，则plot函数只显示标记符，但不会显示线条。</p>
+<p>plot函数在绘制线条时，线条属性主要包括三个方面.</p>
+<h3 id="3-1-线型的使用。"><a href="#3-1-线型的使用。" class="headerlink" title="3.1 线型的使用。"></a>3.1 线型的使用。</h3><img src="https://e.im5i.com/2021/07/11/RC1fQ.png" alt="线型" border="0" align="center" />
+
+
+
+<h3 id="3-2-颜色的使用"><a href="#3-2-颜色的使用" class="headerlink" title="3.2 颜色的使用"></a>3.2 颜色的使用</h3><p>其中最常用的颜色如下所示，更多的颜色可以采用RGB来表示。</p>
+<img src="https://e.im5i.com/2021/07/11/RCvhx.png" alt="颜色" border="0">
+
+<h3 id="3-3-标志符的应用"><a href="#3-3-标志符的应用" class="headerlink" title="3.3 标志符的应用"></a>3.3 标志符的应用</h3><p>它可以更有效的显示出数据点的位置。</p>
+<img src="https://e.im5i.com/2021/07/11/RCB4q.png" alt="标志符" border="0">
+
+<div align="center">
+<img src="https://e.im5i.com/2021/07/11/RC30D.png" alt="其他属性" border="0"  />
+</div>
+
+
+<h2 id="4-举例"><a href="#4-举例" class="headerlink" title="4 举例"></a>4 举例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plot(T,y1,<span class="string">&#x27;--&#x27;</span>,T,y2,<span class="string">&#x27;-.&#x27;</span>,T,y3,<span class="string">&#x27;-&#x27;</span>);</span><br><span class="line">grid on</span><br><span class="line">%这里<span class="string">&#x27;--&#x27;</span> ,<span class="string">&#x27;-.&#x27;</span>,<span class="string">&#x27;-&#x27;</span>表示的是对应曲线所用的线条</span><br></pre></td></tr></table></figure>
+
+<h1 id="plotyy"><a href="#plotyy" class="headerlink" title="plotyy"></a>plotyy</h1><h2 id="1-定义-1"><a href="#1-定义-1" class="headerlink" title="1 定义"></a>1 定义</h2><p>plotyy是MAT LAB函数，用来绘制双纵坐标图。函数的返回值是，左右纵坐标轴和两条曲线的句柄。</p>
+<h2 id="2-调用格式-1"><a href="#2-调用格式-1" class="headerlink" title="2 调用格式"></a>2 调用格式</h2><h3 id="2-1-plotyy（X1-Y1-X2-Y2）"><a href="#2-1-plotyy（X1-Y1-X2-Y2）" class="headerlink" title="2.1 plotyy（X1,Y1,X2,Y2）"></a>2.1 plotyy（X1,Y1,X2,Y2）</h3><p>以左、右不同纵轴绘制X1-Y1、X2-Y2两条曲线。</p>
+<h3 id="2-2-plotyy（X1-Y1-X2-Y2-FUN1）"><a href="#2-2-plotyy（X1-Y1-X2-Y2-FUN1）" class="headerlink" title="2.2 plotyy（X1,Y1,X2,Y2,FUN1）"></a>2.2 plotyy（X1,Y1,X2,Y2,FUN1）</h3><p>以左、右不同纵轴把X1-Y1、X2-Y2两条曲线绘制成FUN1指定形式的两条曲线。</p>
+<h3 id="2-3-plotyy（X1-Y1-X2-Y2-FUN1，FUN2）"><a href="#2-3-plotyy（X1-Y1-X2-Y2-FUN1，FUN2）" class="headerlink" title="2.3 plotyy（X1,Y1,X2,Y2,FUN1，FUN2）"></a>2.3 plotyy（X1,Y1,X2,Y2,FUN1，FUN2）</h3><p>以左、右不同纵轴把X1-Y1、X2-Y2两条曲线绘制成FUN1、FUN2指定的不同形式的两条曲线。其中fun的绘制方式包括plot，semilogx，semilogy，loglog等。</p>
+<h3 id="2-4-AX-H1-H2-x3D-plotyy-…"><a href="#2-4-AX-H1-H2-x3D-plotyy-…" class="headerlink" title="2.4 [AX,H1,H2]&#x3D;plotyy(…)"></a>2.4 [AX,H1,H2]&#x3D;plotyy(…)</h3><blockquote>
+<p>返回AX中创建的两个坐标轴的句柄以及H1和H2中每个图形绘图对象的句柄。AX（1）为左侧轴，AX（2）为右侧轴。</p>
+</blockquote>
+<h3 id="2-5-注意"><a href="#2-5-注意" class="headerlink" title="2.5 注意:"></a>2.5 注意:</h3><ul>
+<li>AX返回的是两个坐标轴的句柄，而H1和H2则是表示的每个图像的句柄。</li>
+<li><code>左纵轴用于X1-Y1数据对，右纵轴用于X2-Y2数据对。</code></li>
+<li>轴的范围、刻度都自动产生。如果要人工设置，必须使用axis函数。</li>
+</ul>
+<h2 id="3-设置属性"><a href="#3-设置属性" class="headerlink" title="3 设置属性"></a>3 设置属性</h2><h3 id="3-1-设置坐标轴刻度"><a href="#3-1-设置坐标轴刻度" class="headerlink" title="3.1 设置坐标轴刻度"></a>3.1 设置坐标轴刻度</h3><p>设置双y轴的刻度，使用以下函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[AX,h1line1,hline2]=plotyy(x1,y1,x2,y2);</span><br><span class="line">%得到两个y轴的句柄AX(<span class="number">1</span>)、AX(<span class="number">2</span>)</span><br><span class="line">set(AX(<span class="number">2</span>),<span class="string">&#x27;ytick&#x27;</span>,[<span class="number">0</span>:<span class="number">20</span>:<span class="number">500</span>]);</span><br><span class="line">%设置右y轴的刻度</span><br><span class="line">set(gca,<span class="string">&#x27;xtick&#x27;</span>,[<span class="number">0</span>:<span class="number">15</span>:<span class="number">100</span>]);  %设置x轴的刻度为<span class="number">0</span>:<span class="number">15</span>:<span class="number">100</span></span><br><span class="line">set(gca,<span class="string">&#x27;ytick&#x27;</span>,[<span class="number">0</span>:<span class="number">20</span>:<span class="number">350</span>]); %设置左y轴的刻度为<span class="number">0</span>:<span class="number">20</span>:<span class="number">350</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-2-设置轴的标签"><a href="#3-2-设置轴的标签" class="headerlink" title="3.2 设置轴的标签"></a>3.2 设置轴的标签</h3><p>先提取出轴的标签的句柄，然后再用set()函数设置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">figure;</span><br><span class="line">t=<span class="number">0</span>:<span class="number">0.1</span>:<span class="number">9</span>*pi;</span><br><span class="line">[AX,hline1,hline2]=plotyy(t,sin(t),t,exp(t));</span><br><span class="line">d1=get(AX(<span class="number">1</span>),<span class="string">&#x27;ylabel&#x27;</span>);%取出ylabel的句柄</span><br><span class="line">set(d1,<span class="string">&#x27;string&#x27;</span>,<span class="string">&#x27;yayacpf&#x27;</span>);%设置ylabel的值</span><br><span class="line">set(get(H(<span class="number">2</span>),<span class="string">&#x27;ylabel&#x27;</span>),<span class="string">&#x27;string&#x27;</span>,<span class="string">&#x27;bbs from hit&#x27;</span>,<span class="string">&#x27;fontsize&#x27;</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-设置线型"><a href="#3-3-设置线型" class="headerlink" title="3.3 设置线型"></a>3.3 设置线型</h3><p>取出曲线句柄，使用set函数对曲线进行设置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t=<span class="number">0</span>:<span class="number">0.1</span>:<span class="number">9</span>;</span><br><span class="line">[AX,hline1,hliine2]=plotyy(t,sin(t),t,cos(t));</span><br><span class="line">set(hline1,<span class="string">&#x27;linestyle&#x27;</span>,<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;marker&#x27;</span>,<span class="string">&#x27;o&#x27;</span>,<span class="string">&#x27;color&#x27;</span>,<span class="string">&#x27;r&#x27;</span>);</span><br><span class="line">et(hline2,<span class="string">&#x27;linestyle&#x27;</span>,<span class="string">&#x27;:&#x27;</span>,<span class="string">&#x27;marker&#x27;</span>,<span class="string">&#x27;x&#x27;</span>,<span class="string">&#x27;color&#x27;</span>,<span class="string">&#x27;b&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="3-5-设置图例"><a href="#3-5-设置图例" class="headerlink" title="3.5 设置图例"></a>3.5 设置图例</h3><p>利用<code>lengend()函数</code>即可对任意图进行添加图例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">x=linspace(0,2*pi,50);       </span><br><span class="line">%linspace(x1,x2,N), linspace是Matlab中的均分计算指令，</span><br><span class="line">% 用于产生x1,x2之间的N点行线性的矢量。</span><br><span class="line">%其中x1、x2、N分别为起始值、终止值、元素个数。若默认N，默认点数为100。</span><br><span class="line">[ax,h1,h2]=plotyy(x,sin(x)+cos(x),x,exp(x));</span><br><span class="line"><span class="built_in">set</span>(h1,<span class="string">&#x27;linestyle&#x27;</span>,<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line"><span class="built_in">set</span>(h2,<span class="string">&#x27;linestyle&#x27;</span>,<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line"><span class="built_in">set</span>(h1,<span class="string">&#x27;marker&#x27;</span>,<span class="string">&#x27;o&#x27;</span>)</span><br><span class="line"><span class="built_in">set</span>(h2,<span class="string">&#x27;marker&#x27;</span>,<span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">%以上设置好两条曲线的属性</span><br><span class="line">hold on</span><br><span class="line">x=linspace(0,2*pi,50);</span><br><span class="line">hh=line(x,cos(x));</span><br><span class="line"><span class="built_in">set</span>(hh,<span class="string">&#x27;linestyle&#x27;</span>,<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line"><span class="built_in">set</span>(hh,<span class="string">&#x27;marker&#x27;</span>,<span class="string">&#x27;s&#x27;</span>)</span><br><span class="line">hold on</span><br><span class="line">hhf=line(x,sin(x));</span><br><span class="line"><span class="built_in">set</span>(hhf,<span class="string">&#x27;color&#x27;</span>,<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line"><span class="built_in">set</span>(hhf,<span class="string">&#x27;linestyle&#x27;</span>,<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line"><span class="built_in">set</span>(hhf,<span class="string">&#x27;marker&#x27;</span>,<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">legend([h1,h2,hh,hhf],<span class="string">&#x27;sin(x)+cos(x)&#x27;</span>,<span class="string">&#x27;exp(x)&#x27;</span>,<span class="string">&#x27;cos(x)&#x27;</span>,<span class="string">&#x27;sin(x)&#x27;</span>);</span><br><span class="line">%加注图例</span><br></pre></td></tr></table></figure>
+<h2 id="4-Example"><a href="#4-Example" class="headerlink" title="4 Example"></a>4 Example</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">0</span>:<span class="number">0.1</span>*pi:<span class="number">2</span>*pi; y=sin(x); z=exp(x);</span><br><span class="line">plotyy(x,y,x,z,<span class="string">&#x27;plot&#x27;</span>,<span class="string">&#x27;semilogy&#x27;</span>);</span><br><span class="line">x=<span class="number">0</span>:<span class="number">0.1</span>*pi:<span class="number">2</span>*pi; y=sin(x); z=exp(x);</span><br><span class="line">plotyy(x,y,x,z,<span class="string">&#x27;plot&#x27;</span>,<span class="string">&#x27;semilogy&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/003%20matlab-%E5%8F%8D%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    反三角函数
+                
+            </div>
+        </a>
+    
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            覃国铭 &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

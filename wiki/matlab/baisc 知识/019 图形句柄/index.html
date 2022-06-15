@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>图形句柄 | AKSOAM blog</title>
+    
+    
+        <meta name="keywords" content="matlab,绘图" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="图形句柄是对底层图形函数集合的总称，它实际上是进行图形生成的工作。这些函数一般隐藏于M文件内部，但是它们非常重要，因为程序员可以利用它们对图形的外观进行控制。 1. 句柄对象1.1 图形对象每个图形对象都有一个独立的名字，这个名字叫作句柄。每个图形对象都有它的属性，可以通过修改它的属性来修改图形的表现。 例如，一条曲线是图形对象的一种。曲线对象有x数据、y数据、颜色、线的类型、线宽、符号类型等属性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图形句柄">
+<meta property="og:url" content="http://example.com/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/019%20%E5%9B%BE%E5%BD%A2%E5%8F%A5%E6%9F%84/index.html">
+<meta property="og:site_name" content="AKSOAM blog">
+<meta property="og:description" content="图形句柄是对底层图形函数集合的总称，它实际上是进行图形生成的工作。这些函数一般隐藏于M文件内部，但是它们非常重要，因为程序员可以利用它们对图形的外观进行控制。 1. 句柄对象1.1 图形对象每个图形对象都有一个独立的名字，这个名字叫作句柄。每个图形对象都有它的属性，可以通过修改它的属性来修改图形的表现。 例如，一条曲线是图形对象的一种。曲线对象有x数据、y数据、颜色、线的类型、线宽、符号类型等属性">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://e.im5i.com/2021/07/30/tQ023.png">
+<meta property="article:published_time" content="2021-07-30T09:04:11.000Z">
+<meta property="article:modified_time" content="2022-06-15T05:27:07.929Z">
+<meta property="article:author" content="覃国铭">
+<meta property="article:tag" content="matlab">
+<meta property="article:tag" content="绘图">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://e.im5i.com/2021/07/30/tQ023.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="AKSOAM blog" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">AKSOAM blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">AKSOAM1037</h2>
+            <h3 id="title">A Student of HUST</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Wuhan, China</span>
+            <a id="follow" target="_blank" href="https://space.bilibili.com/470140717">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                21
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                4
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/qinguoming/qinguoming.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Abaques
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            basic
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Abaques/%E6%9C%ACwiki%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">本wiki第一篇博客</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            matlab
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            基础知识
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/001%20MATLAB-plotyy-%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">plotyy()和plot()</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/003%20matlab-%E5%8F%8D%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/">反三角函数</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/007%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%B8%80/">程序流程控制结构(一)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/005%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%BA%8C/">程序流程控制结构(二)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/006%20%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-%E4%B8%89/">程序流程控制结构(三)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/014%20%E5%87%BD%E6%95%B0%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%B0%83%E7%94%A8/">函数文件的定义和调用</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/004%20matlab-%E7%9F%A9%E9%98%B5%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84%E5%85%B3%E7%B3%BB/">矩阵和数组的关系</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/012%20%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%92%8C%E5%87%BD%E6%95%B0%E5%8F%98%E9%87%8F%E6%80%BB%E7%BB%93/">函数参数和函数变量</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/013%20%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/">函数类型及函数调用方法</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/008%20%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/017%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8A/">数组和矩阵的操作(上)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/018%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E6%93%8D%E4%BD%9C-%E4%B8%8B/">数组和矩阵的操作(下)</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/015%20%E7%BB%98%E5%88%B6%E7%A6%BB%E6%95%A3%E6%95%B0%E6%8D%AE/">绘制离散数据</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/009%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-1/">符号计算1</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/010%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-2/">符号计算_7.3</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/011%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-3/">符号计算 7-4</a></li>  <li class="file active"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/019%20%E5%9B%BE%E5%BD%A2%E5%8F%A5%E6%9F%84/">图形句柄</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/021%20%E4%B8%89%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">三维图形绘制</a></li>  <li class="file"><a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/020%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">二维绘图</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">Welcome AKSOAM's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>archives</span></h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">17</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-matlab/baisc 知识/019 图形句柄" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/matlab/">matlab</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/matlab/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/matlab/" rel="tag">matlab</a>, <a class="tag-link-link" href="/tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/019%20%E5%9B%BE%E5%BD%A2%E5%8F%A5%E6%9F%84/">
+            <time datetime="2021-07-30T09:04:11.000Z" itemprop="datePublished">2021-07-30</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            图形句柄
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p>图形句柄是对底层图形函数集合的总称，它实际上是进行图形生成的工作。这些函数一般隐藏于M文件内部，但是它们非常重要，因为程序员可以利用它们对图形的外观进行控制。</p>
+<h2 id="1-句柄对象"><a href="#1-句柄对象" class="headerlink" title="1. 句柄对象"></a>1. 句柄对象</h2><h3 id="1-1-图形对象"><a href="#1-1-图形对象" class="headerlink" title="1.1 图形对象"></a>1.1 图形对象</h3><p>每个图形对象都有一个独立的名字，这个名字叫作<strong>句柄</strong>。每个图形对象都有它的属性，可以<strong>通过修改它的属性</strong>来修改图形的表现。</p>
+<p>例如，一条曲线是图形对象的一种。曲线对象有x数据、y数据、颜色、线的类型、线宽、符号类型等属性。修改其中的一个属性就会改变图形的表现形式</p>
+<p>由图形命令产生的每一件东西都是图形对象。</p>
+<img src="https://e.im5i.com/2021/07/30/tQ023.png" alt="tQ023.png" border="0" />
+
+<p>在根对象下，有多个图形窗口。每个图形在用于显示图形数据的计算机屏幕上都有一个独立的窗口，每个图形都有它独立的属性。<strong>与图形相关的属性有颜色、图形底色、纸张大小、纸张排列方向、指针类型等。</strong></p>
+<h3 id="1-2-图形对象句柄"><a href="#1-2-图形对象句柄" class="headerlink" title="1.2 图形对象句柄"></a>1.2 图形对象句柄</h3><p>每个图形对象在被创建时都有一个独一无二的名字，这个名字叫作句柄。</p>
+<p>MATLAB都为该对象句柄分配了唯一的值。</p>
+<p>句柄在MATLAB中是一个独一无二的整数或实数，<strong>用于指定对象的身份。</strong></p>
+<p><strong>句柄是图形对象的唯一标识符</strong>，不同对象的句柄不可能重复和混淆。</p>
+<blockquote>
+<p>gcf函数是获取当前图形窗口的句柄；<br>gca函数是获取当前坐标轴的句柄；<br>gco函数是获取最近被单击的图形对象的句柄。</p>
+</blockquote>
+<p>为了以后对图形对象进行操作，可以在建立该对象时保存其句柄。</p>
+<p><strong>例如，命令hf&#x3D;figure是创建一个图形窗口的命令，会自动地返回一个句柄，并将其句柄赋给变量hf保存，以后就可以通过该句柄对图形窗口进行操作。</strong></p>
+<h2 id="2-对象属性"><a href="#2-对象属性" class="headerlink" title="2.对象属性"></a>2.对象属性</h2><h3 id="2-1-属性名与属性值"><a href="#2-1-属性名与属性值" class="headerlink" title="2.1 属性名与属性值"></a>2.1 属性名与属性值</h3><p>MATLAB给每种对象的每一个属性规定了一个名字，称为属性名，而属性名的取值称为属性值。</p>
+<p>例如，LineStyle是曲线对象的一个属性名，它的取值决定了线型，取值可以是-、:、-.、–或none</p>
+<p>在属性名的写法中，不区分字母的大小写，属性名要用单撇号括起来</p>
+<h3 id="2-2-操作属性值"><a href="#2-2-操作属性值" class="headerlink" title="2.2 操作属性值"></a>2.2 操作属性值</h3><p>当创建一个对象时，必须给对象的各种属性赋予必要的属性值，否则<strong>系统会自动使用默认属性值</strong>。</p>
+<p>用户可以通过<strong>set函数重新设置对象属性</strong>，同时也可以通过<strong>get函数获取这些属性值。</strong></p>
+<blockquote>
+<p>set函数参数只有句柄的时候，将显示出句柄所有的允许属性。</p>
+</blockquote>
+<ul>
+<li><p>set函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set(句柄，<span class="string">&#x27;属性名1&#x27;</span>，‘属性值<span class="number">1</span>’，<span class="string">&#x27;属性名2&#x27;</span>，‘属性值<span class="number">2</span>’····)</span><br></pre></td></tr></table></figure>
+<p>句柄用于指出要操作的对象。</p>
+</li>
+<li><p>get函数</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">value=get(句柄，<span class="string">&#x27;属性名&#x27;</span>)%如果在调用get函数时省略属性名，则将返回句柄所有的属性值。</span><br><span class="line">% value==返回的属性值</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-对象的公共属性"><a href="#2-3-对象的公共属性" class="headerlink" title="2.3 对象的公共属性"></a>2.3 对象的公共属性</h3><p>图形对象具有多种属性，有些属性是所有对象共同具备的，有些则是各对象所特有的。</p>
+<ol>
+<li>Children属性。该属性的取值是<mark><strong>该对象所有子对象的句柄组成的一个向量</strong></mark></li>
+<li>Parent属性。该属性的取值是<mark><strong>该对象的父对象的句柄。</strong></mark>显然，图形窗口对象的Parent属性总是0。</li>
+<li>Tag属性。该属性的取值是一个字符串，它<strong>相当于给该对象定义了一个标识符。</strong>定义了Tag属性后，在任何程序中都可以<strong>通过findobj函数获取该标识符所对应图形对象的句柄。</strong></li>
+<li>Type属性。表示该<strong>对象的类型</strong>。显然，该属性的值是不可改变的。</li>
+<li>UserData属性。该属性的取值是一个矩阵，默认值为空矩阵。在程序设计中，可以将一个图形对象有关的比较重要的数据存储在这个属性中，借此可以达到传递数据的目的。具体做法是，先用set函数给某一句柄添加一些附加数据（一个矩阵），<strong>如果希望使用这个矩阵，则用get函数调用出来。</strong></li>
+<li>Visible属性。<strong>该属性的取值是on（默认值）或off</strong>。它决定着图形窗口是否在屏幕上显示出来。当它的值为off时，可以用来隐藏该图形窗口的动态变化过程，如窗口大小的变化、颜色的变化等。注意，<strong>对象是否存在与对象是否可见是两回事，对象可以存在，同时又是不可见的。</strong></li>
+<li>ButtonDownFcn属性。该属性的取值是一个字符串，一般是某个M文件名或一小段MATLAB语句。图形对象决定了一个作用区域，当单击该区域时，MATLAB自动执行该程序段</li>
+<li>CreateFcn属性。该属性的取值是一个字符串，一般是某个M文件名或一小段MATLAB语句。当创建该对象时，MATLAB自动执行该程序段。</li>
+<li>DeleteFcn属性。该属性的取值是一个字符串，一般是某个M文件名或一小段MATLAB语句。当取消该对象时，MATLAB自动执行该程序段</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; x=<span class="number">0</span>:pi/<span class="number">60</span>:<span class="number">2</span>*pi;</span><br><span class="line">&gt;&gt; y=sin(x);</span><br><span class="line">&gt;&gt; </span><br><span class="line">&gt;&gt; z=cos(<span class="number">3</span>*x);</span><br><span class="line">&gt;&gt; plot(x,y,<span class="string">&#x27;b&#x27;</span>,x,z,<span class="string">&#x27;g&#x27;</span>);</span><br><span class="line">&gt;&gt; hf=get(gca)% gca当前坐标轴的句柄 %返回当前坐标轴的所有属性名</span><br><span class="line"></span><br><span class="line">hf = </span><br><span class="line">             CameraPosition: [<span class="number">3.5000</span> <span class="number">0</span> <span class="number">17.3205</span>]</span><br><span class="line">         CameraPositionMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">               CameraTarget: [<span class="number">3.5000</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line">           CameraTargetMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">             CameraUpVector: [<span class="number">0</span> <span class="number">1</span> <span class="number">0</span>]</span><br><span class="line">         CameraUpVectorMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">            CameraViewAngle: <span class="number">6.6086</span></span><br><span class="line">        CameraViewAngleMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                       View: [<span class="number">0</span> <span class="number">90</span>]</span><br><span class="line">                 Projection: <span class="string">&#x27;orthographic&#x27;</span></span><br><span class="line">    LabelFontSizeMultiplier: <span class="number">1.1000</span></span><br><span class="line">          AmbientLightColor: [<span class="number">1</span> <span class="number">1</span> <span class="number">1</span>]</span><br><span class="line">            DataAspectRatio: [<span class="number">3.5000</span> <span class="number">1</span> <span class="number">1</span>]</span><br><span class="line">        DataAspectRatioMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">         PlotBoxAspectRatio: [<span class="number">1</span> <span class="number">0.4515</span> <span class="number">0.4515</span>]</span><br><span class="line">     PlotBoxAspectRatioMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                   FontName: <span class="string">&#x27;Helvetica&#x27;</span></span><br><span class="line">                  FontAngle: <span class="string">&#x27;normal&#x27;</span></span><br><span class="line">                 FontWeight: <span class="string">&#x27;normal&#x27;</span></span><br><span class="line">              FontSmoothing: <span class="string">&#x27;on&#x27;</span></span><br><span class="line">       TickLabelInterpreter: <span class="string">&#x27;tex&#x27;</span></span><br><span class="line">           &lt;mark&gt;  XLim: [<span class="number">0</span> <span class="number">7</span>]</span><br><span class="line">                   XLimMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                       YLim: [-<span class="number">1</span> <span class="number">1</span>]</span><br><span class="line">                   YLimMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                       ZLim: [-<span class="number">1</span> <span class="number">1</span>]</span><br><span class="line">                   ZLimMode: <span class="string">&#x27;auto&#x27;</span>&lt;/mark&gt;</span><br><span class="line">                       XDir: <span class="string">&#x27;normal&#x27;</span></span><br><span class="line">                       YDir: <span class="string">&#x27;normal&#x27;</span></span><br><span class="line">                       ZDir: <span class="string">&#x27;normal&#x27;</span></span><br><span class="line">                       CLim: [<span class="number">0</span> <span class="number">1</span>]</span><br><span class="line">                   CLimMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                       ALim: [<span class="number">0</span> <span class="number">1</span>]</span><br><span class="line">                   ALimMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                      Layer: <span class="string">&#x27;bottom&#x27;</span></span><br><span class="line">                 TickLength: [<span class="number">0.0100</span> <span class="number">0.0250</span>]</span><br><span class="line">              GridLineStyle: <span class="string">&#x27;-&#x27;</span></span><br><span class="line">         MinorGridLineStyle: <span class="string">&#x27;:&#x27;</span></span><br><span class="line">              XAxisLocation: <span class="string">&#x27;bottom&#x27;</span></span><br><span class="line">                     XColor: [<span class="number">0.1500</span> <span class="number">0.1500</span> <span class="number">0.1500</span>]</span><br><span class="line">                 XColorMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                      XTick: [<span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span>]</span><br><span class="line">                  XTickMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">         XTickLabelRotation: <span class="number">0</span></span><br><span class="line">                     XLabel: [1x1 Text]</span><br><span class="line">                     XScale: <span class="string">&#x27;linear&#x27;</span></span><br><span class="line">                 XTickLabel: &#123;8x1 cell&#125;</span><br><span class="line">             XTickLabelMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                 XMinorTick: <span class="string">&#x27;off&#x27;</span></span><br><span class="line">              YAxisLocation: <span class="string">&#x27;left&#x27;</span></span><br><span class="line">                     YColor: [<span class="number">0.1500</span> <span class="number">0.1500</span> <span class="number">0.1500</span>]</span><br><span class="line">                 YColorMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                      YTick: [-<span class="number">1</span> -<span class="number">0.5000</span> <span class="number">0</span> <span class="number">0.5000</span> <span class="number">1</span>]</span><br><span class="line">                  YTickMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">         YTickLabelRotation: <span class="number">0</span></span><br><span class="line">                     YLabel: [1x1 Text]</span><br><span class="line">                     YScale: <span class="string">&#x27;linear&#x27;</span></span><br><span class="line">                 YTickLabel: &#123;5x1 cell&#125;</span><br><span class="line">             YTickLabelMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                 YMinorTick: <span class="string">&#x27;off&#x27;</span></span><br><span class="line">                     ZColor: [<span class="number">0.1500</span> <span class="number">0.1500</span> <span class="number">0.1500</span>]</span><br><span class="line">                 ZColorMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                      ZTick: [-<span class="number">1</span> <span class="number">0</span> <span class="number">1</span>]</span><br><span class="line">                  ZTickMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">         ZTickLabelRotation: <span class="number">0</span></span><br><span class="line">                     ZLabel: [1x1 Text]</span><br><span class="line">                     ZScale: <span class="string">&#x27;linear&#x27;</span></span><br><span class="line">                 ZTickLabel: <span class="string">&#x27;&#x27;</span></span><br><span class="line">             ZTickLabelMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                 ZMinorTick: <span class="string">&#x27;off&#x27;</span></span><br><span class="line">                   BoxStyle: <span class="string">&#x27;back&#x27;</span></span><br><span class="line">                  LineWidth: <span class="number">0.5000</span></span><br><span class="line">                      Color: [<span class="number">1</span> <span class="number">1</span> <span class="number">1</span>]</span><br><span class="line">              ClippingStyle: <span class="string">&#x27;3dbox&#x27;</span></span><br><span class="line">               CurrentPoint: [2x3 <span class="type">double</span>]</span><br><span class="line">                      Title: [1x1 Text]</span><br><span class="line">                      XAxis: [1x1 NumericRuler]</span><br><span class="line">                      ZAxis: [1x1 NumericRuler]</span><br><span class="line">                      XGrid: <span class="string">&#x27;off&#x27;</span></span><br><span class="line">                 XMinorGrid: <span class="string">&#x27;off&#x27;</span></span><br><span class="line">                      YGrid: <span class="string">&#x27;off&#x27;</span></span><br><span class="line">                 YMinorGrid: <span class="string">&#x27;off&#x27;</span></span><br><span class="line">                      ZGrid: <span class="string">&#x27;off&#x27;</span></span><br><span class="line">                 ZMinorGrid: <span class="string">&#x27;off&#x27;</span></span><br><span class="line">                      YAxis: [1x1 NumericRuler]</span><br><span class="line">              UIContextMenu: [<span class="number">0x0</span> GraphicsPlaceholder]</span><br><span class="line">              ButtonDownFcn: <span class="string">&#x27;&#x27;</span></span><br><span class="line">                 BusyAction: <span class="string">&#x27;queue&#x27;</span></span><br><span class="line">               BeingDeleted: <span class="string">&#x27;off&#x27;</span></span><br><span class="line">              Interruptible: <span class="string">&#x27;on&#x27;</span></span><br><span class="line">                  CreateFcn: <span class="string">&#x27;&#x27;</span></span><br><span class="line">                  DeleteFcn: <span class="string">&#x27;&#x27;</span></span><br><span class="line">                       Type: <span class="string">&#x27;axes&#x27;</span></span><br><span class="line">                        Tag: <span class="string">&#x27;&#x27;</span></span><br><span class="line">                   UserData: []</span><br><span class="line">                   Selected: <span class="string">&#x27;off&#x27;</span></span><br><span class="line">         SelectionHighlight: <span class="string">&#x27;on&#x27;</span></span><br><span class="line">                    HitTest: <span class="string">&#x27;on&#x27;</span></span><br><span class="line">              PickableParts: <span class="string">&#x27;visible&#x27;</span></span><br><span class="line">                      Units: <span class="string">&#x27;normalized&#x27;</span></span><br><span class="line">                   Position: [<span class="number">0.1300</span> <span class="number">0.1100</span> <span class="number">0.7750</span> <span class="number">0.8150</span>]</span><br><span class="line">              OuterPosition: [<span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>]</span><br><span class="line">     ActivePositionProperty: <span class="string">&#x27;outerposition&#x27;</span></span><br><span class="line">                 TightInset: [<span class="number">0.0459</span> <span class="number">0.0836</span> <span class="number">0.0063</span> <span class="number">0.0321</span>]</span><br><span class="line">                 ColorOrder: [7x3 <span class="type">double</span>]</span><br><span class="line">            ColorOrderIndex: <span class="number">1</span></span><br><span class="line">             LineStyleOrder: <span class="string">&#x27;-&#x27;</span></span><br><span class="line">        LineStyleOrderIndex: <span class="number">1</span></span><br><span class="line">                  FontUnits: <span class="string">&#x27;points&#x27;</span></span><br><span class="line">                   FontSize: <span class="number">10</span></span><br><span class="line">            TitleFontWeight: <span class="string">&#x27;normal&#x27;</span></span><br><span class="line">    TitleFontSizeMultiplier: <span class="number">1.1000</span></span><br><span class="line">                 SortMethod: <span class="string">&#x27;childorder&#x27;</span></span><br><span class="line">                    TickDir: <span class="string">&#x27;in&#x27;</span></span><br><span class="line">                TickDirMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                  GridColor: [<span class="number">0.1500</span> <span class="number">0.1500</span> <span class="number">0.1500</span>]</span><br><span class="line">              GridColorMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">             MinorGridColor: [<span class="number">0.1000</span> <span class="number">0.1000</span> <span class="number">0.1000</span>]</span><br><span class="line">         MinorGridColorMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                  GridAlpha: <span class="number">0.1500</span></span><br><span class="line">              GridAlphaMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">             MinorGridAlpha: <span class="number">0.2500</span></span><br><span class="line">         MinorGridAlphaMode: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">                   Clipping: <span class="string">&#x27;on&#x27;</span></span><br><span class="line">                   NextPlot: <span class="string">&#x27;replace&#x27;</span></span><br><span class="line">                        Box: <span class="string">&#x27;on&#x27;</span></span><br><span class="line">                   Children: [2x1 Line]</span><br><span class="line">                     Parent: [1x1 Figure]</span><br><span class="line">                    Visible: <span class="string">&#x27;on&#x27;</span></span><br><span class="line">           HandleVisibility: <span class="string">&#x27;on&#x27;</span></span><br><span class="line">&gt;&gt; hf=get(gca,<span class="string">&#x27;children&#x27;</span>)</span><br><span class="line"></span><br><span class="line">hf = </span><br><span class="line"></span><br><span class="line">  2x1 Line 数组:</span><br><span class="line"></span><br><span class="line">  Line</span><br><span class="line">  Line</span><br><span class="line"></span><br><span class="line">&gt;&gt; <span class="keyword">for</span> k=<span class="number">1</span>:size(hf)</span><br><span class="line"><span class="keyword">if</span> <span class="title function_">get</span><span class="params">(hf(k)</span>,<span class="string">&#x27;color&#x27;</span>)==[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span>]</span><br><span class="line">hfg=hf(k)</span><br><span class="line">end</span><br><span class="line"><span class="type">end</span></span><br><span class="line"></span><br><span class="line"><span class="variable">hfg</span> <span class="operator">=</span> </span><br><span class="line"></span><br><span class="line">  Line (具有属性):</span><br><span class="line"></span><br><span class="line">              Color: [<span class="number">0</span> <span class="number">1</span> <span class="number">0</span>]</span><br><span class="line">          LineStyle: <span class="string">&#x27;-&#x27;</span></span><br><span class="line">          LineWidth: <span class="number">0.5000</span></span><br><span class="line">             Marker: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">         MarkerSize: <span class="number">6</span></span><br><span class="line">    MarkerFaceColor: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">              XData: [1x121 <span class="type">double</span>]</span><br><span class="line">              YData: [1x121 <span class="type">double</span>]</span><br><span class="line">              ZData: [1x0 <span class="type">double</span>]</span><br><span class="line"></span><br><span class="line">  显示 所有属性</span><br><span class="line"></span><br><span class="line">&gt;&gt; set(hfg,<span class="string">&#x27;linestyle&#x27;</span>,<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line"></span><br><span class="line">## 图形句柄创建实例</span><br><span class="line"></span><br><span class="line">### <span class="number">3.1</span> 图形窗口</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">%创建图形窗口对象</span><br><span class="line">h=figure(属性名<span class="number">1</span>，属性值<span class="number">1</span>····)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">%创建图形窗口对象</span><br><span class="line">figure(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">figure</span><br><span class="line"></span><br><span class="line">%关闭窗口</span><br><span class="line">close(h)</span><br><span class="line">或者</span><br><span class="line">%关闭当前图形窗口</span><br><span class="line">close(gcf)		</span><br><span class="line">%关闭所有的图形窗口</span><br><span class="line">close all </span><br><span class="line">%清除当前图形的内容</span><br><span class="line">clf</span><br></pre></td></tr></table></figure>
+<p>创建一个图形窗口。该图形窗口没有图形编号，标题名为“我的图形窗口”，起始于屏幕[50,50]，宽度和高度分别为700像素点和500像素点</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; hf=figure(<span class="string">&#x27;numbertitle&#x27;</span>,<span class="string">&#x27;off&#x27;</span>,<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;我的图形窗口&#x27;</span>,<span class="string">&#x27;position&#x27;</span>,[<span class="number">50</span> <span class="number">50</span> <span class="number">700</span> <span class="number">500</span>])</span><br><span class="line"></span><br><span class="line">hf = </span><br><span class="line">  Figure (<span class="number">1</span>: 我的图形窗口) (具有属性):</span><br><span class="line"></span><br><span class="line">      Number: <span class="number">1</span></span><br><span class="line">        Name: <span class="string">&#x27;我的图形窗口&#x27;</span></span><br><span class="line">       Color: [<span class="number">0.9400</span> <span class="number">0.9400</span> <span class="number">0.9400</span>]</span><br><span class="line">    Position: [<span class="number">50</span> <span class="number">50</span> <span class="number">700</span> <span class="number">500</span>]</span><br><span class="line">       Units: <span class="string">&#x27;pixels&#x27;</span></span><br><span class="line">  显示 所有属性</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-坐标轴对象"><a href="#2-4-坐标轴对象" class="headerlink" title="2.4 坐标轴对象"></a>2.4 坐标轴对象</h3><p>创建坐标轴对象，使用axes函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%使用axes函数按MATLAB默认的属性值在当前图形窗口创建坐标轴</span><br><span class="line">axes;</span><br><span class="line">% 或者</span><br><span class="line">hf=axes	%返回句柄变量</span><br></pre></td></tr></table></figure>
+
+<p>调用axes函数将之设定为当前坐标轴，且坐标轴所在的图形窗口自动成为当前图形窗口  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axes(hf)</span><br></pre></td></tr></table></figure>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/021%20%E4%B8%89%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    三维图形绘制
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/matlab/baisc%20%E7%9F%A5%E8%AF%86/011%20%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97-3/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">符号计算 7-4</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            覃国铭 &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
