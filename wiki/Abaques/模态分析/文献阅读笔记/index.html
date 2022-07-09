@@ -3,19 +3,33 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2022/6 | AKSOAM blog</title>
+    <title>1.阻尼、模态应变能法与FRP的关系 | AKSOAM blog</title>
     
     
-        <meta name="keywords" content="AKSOAM blog" />
+        <meta name="keywords" content="Abaques,modal anlysis" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="AKSOAM blog">
-<meta property="og:url" content="http://example.com/archives/2022/06/index.html">
+    <meta name="description" content="阻尼的概念 系统损耗振动能或声能的能力称为阻尼  阻尼越大,输人系统的能量便能在较短时间内损耗完毕.系统从受激振动到重新静止所经历的时间就越短;  阻尼也可理解为系统受激后迅速恢复到受激前状态的一种能力   阻尼的基本原理就是损耗能量，所以阻尼也可以看成是一种内耗。把输入的能量转化为其他的能量。其物理意义是：系统损耗的能量和输入的能量的比值，是一个无量纲参量。^1 对于完全弹性体，根据弹性理论的广">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1.阻尼、模态应变能法与FRP的关系">
+<meta property="og:url" content="http://example.com/wiki/Abaques/%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="AKSOAM blog">
+<meta property="og:description" content="阻尼的概念 系统损耗振动能或声能的能力称为阻尼  阻尼越大,输人系统的能量便能在较短时间内损耗完毕.系统从受激振动到重新静止所经历的时间就越短;  阻尼也可理解为系统受激后迅速恢复到受激前状态的一种能力   阻尼的基本原理就是损耗能量，所以阻尼也可以看成是一种内耗。把输入的能量转化为其他的能量。其物理意义是：系统损耗的能量和输入的能量的比值，是一个无量纲参量。^1 对于完全弹性体，根据弹性理论的广">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/29cb58c14ead422d696c728a637e3667.png">
+<meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/f82c899cb61a476e702dc9acb0af1576.png">
+<meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/5c646dfacaaed762cea26d2454c65dbb.png">
+<meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/ae15b5fcadf2a8e6d06ef2c3d89772b0.png">
+<meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/1e69f9fc8a9ce4f10d5b193f1a56673f.png">
+<meta property="og:image" content="http://example.com/%5Ccfrp.png">
+<meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/69ae0339e00d03ef03cf803ffa5c6d4d.png">
+<meta property="article:published_time" content="2022-07-09T04:38:29.000Z">
+<meta property="article:modified_time" content="2022-07-09T15:15:15.134Z">
 <meta property="article:author" content="覃国铭">
+<meta property="article:tag" content="Abaques">
+<meta property="article:tag" content="modal anlysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.rmb.bdstatic.com/bjh/29cb58c14ead422d696c728a637e3667.png">
     
 
     
@@ -231,9 +245,9 @@
         
         
          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             Abaques
                         </a>
@@ -247,13 +261,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Abaques/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%9D%90%E6%96%99%E7%9A%84%E6%80%A7%E8%83%BD/">材料的性能</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             模态分析
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Abaques/%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">1.阻尼、模态应变能法与FRP的关系</a></li>  <li class="file"><a href="/wiki/Abaques/%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90/%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90/">2.模态分析理论笔记</a></li>  <li class="file"><a href="/wiki/Abaques/%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90/%E3%80%90%E8%BD%AC%E3%80%91%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90%E6%98%AF%E4%BB%80%E4%B9%88%E5%A6%96%E6%80%AA%EF%BC%9F/">【转】模态分析是什么妖怪？</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/Abaques/%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">1.阻尼、模态应变能法与FRP的关系</a></li>  <li class="file"><a href="/wiki/Abaques/%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90/%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90/">2.模态分析理论笔记</a></li>  <li class="file"><a href="/wiki/Abaques/%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90/%E3%80%90%E8%BD%AC%E3%80%91%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90%E6%98%AF%E4%BB%80%E4%B9%88%E5%A6%96%E6%80%AA%EF%BC%9F/">【转】模态分析是什么妖怪？</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -355,90 +369,234 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar-o"></i></span>
-                <h1 class="title"><a href="/archives/2022/">2022</a></h1>
-            </div>
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title"><a href="/archives/2022/06/">2022-06</a><span class="archive-list-count">2</span></h1>
-            </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-Abaques/模态分析/文献阅读笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/Abaques/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%9D%90%E6%96%99%E7%9A%84%E6%80%A7%E8%83%BD/">材料的性能</a>
-        </h1>
-    
-
-                
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/Abaques/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%9D%90%E6%96%99%E7%9A%84%E6%80%A7%E8%83%BD/">
-            <time datetime="2022-06-16T16:38:21.000Z" itemprop="datePublished">2022-06-17</time>
-        </a>
-    </div>
-
-
-                    
+                    <div class="article-meta">
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Abaques/">Abaques</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Abaques/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+        <a class="article-category-link" href="/categories/Abaques/">Abaques</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Abaques/%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90/">模态分析</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Abaques/" rel="tag">Abaques</a>
+        <a class="tag-link-link" href="/tags/Abaques/" rel="tag">Abaques</a>, <a class="tag-link-link" href="/tags/modal-anlysis/" rel="tag">modal anlysis</a>
     </div>
 
-                </div>
-                
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/index/">Welcome AKSOAM&#39;s Wiki Site</a>
-        </h1>
-    
-
-                
-                <div class="article-meta">
-                    
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/index/">
-            <time datetime="2022-06-15T04:53:32.000Z" itemprop="datePublished">2022-06-15</time>
+        <a href="/wiki/Abaques/%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+            <time datetime="2022-07-09T04:38:29.000Z" itemprop="datePublished">2022-07-09</time>
         </a>
     </div>
 
 
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/about/" rel="tag">about</a>
-    </div>
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            1.阻尼、模态应变能法与FRP的关系
+        </h1>
+    
 
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%BB%E5%B0%BC%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">阻尼的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E5%BE%81%E9%98%BB%E5%B0%BC%E7%9A%84%E5%8F%82%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">表征阻尼的参量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A4%E7%BB%B4%E5%A2%9E%E5%BC%BA%E5%A4%8D%E5%90%88%E6%9D%90%E6%96%99%E7%9A%84%E9%98%BB%E5%B0%BC%E6%9C%BA%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">纤维增强复合材料的阻尼机理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%BA%94%E5%8F%98%E8%83%BD%E6%B3%95%EF%BC%88max-strain-energy-method-SEM%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">最大应变能法（max strain energy method-SEM）</span></a></li></ol>
                 </div>
+            
+        
+        
+            <h2 id="阻尼的概念"><a href="#阻尼的概念" class="headerlink" title="阻尼的概念"></a>阻尼的概念</h2><ul>
+<li><p>系统损耗振动能或声能的能力称为阻尼</p>
+</li>
+<li><p>阻尼越大,输人系统的能量便能在较短时间内损耗完毕.系统从受激振动到重新静止所经历的时间就越短;</p>
+</li>
+<li><p>阻尼也可理解为系统受激后迅速恢复到受激前状态的一种能力</p>
+</li>
+</ul>
+<p>阻尼的<strong>基本原理就是损耗能量</strong>，所以阻尼也可以看成是一种<strong>内耗</strong>。把输入的能量转化为其他的能量。其物理意义是：系统损耗的能量和输入的能量的比值，是一个无量纲参量。<a href="%E6%96%B0%E5%9E%8B%E9%98%BB%E5%B0%BC%E6%9D%90%E6%96%99%E7%9A%84%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95_%E9%A1%BE%E5%81%A5.">^1</a></p>
+<p>对于完全弹性体，根据弹性理论的广义胡克定律，材料在弹性变形过程中应力应变满足以下关系：</p>
+<p>$$\sigma&#x3D;E \epsilon或者\tau&#x3D;G\gamma$$</p>
+<p>上述公式有三个条件：</p>
+<ol>
+<li>$\sigma-\epsilon 是线性响应关系，即线性$</li>
+<li>$\sigma-\epsilon 相位差为0，即瞬时性$</li>
+<li>$应变是应力的单值函数，即唯一性$</li>
+</ol>
+<p>而实际情况，并不会完全满足三个条件——表现出非理想弹性，产生阻尼。非理想弹性有滞弹性和粘弹性（在玻璃转变点附近的玻璃体及高温下的多晶体材料，其弹性模量不再为常数，而是表现为与时间有关的弹性行为，即滞弹性）。根据滞弹性是否是线性的分为非线性滞弹性和线性滞弹性，所以阻尼可分为线性滞弹性阻尼、非线性滞弹性阻尼、粘弹性阻尼。</p>
+<ul>
+<li>滞弹性：材料有应变落后于应力的现象，这种现象称为滞弹性，它表征材料的形变在应力移去后能够恢复但不是立即恢复的能力。</li>
+<li>粘弹性：材料不仅具有弹性，而且具有摩擦。当应力被移除后，一部分功被用于摩擦效应而被转化成热能</li>
+</ul>
+<div align="center">
+<img src="https://pic.rmb.bdstatic.com/bjh/29cb58c14ead422d696c728a637e3667.png" width="50%" >
+</div>
+
+
+
+<h2 id="表征阻尼的参量"><a href="#表征阻尼的参量" class="headerlink" title="表征阻尼的参量"></a>表征阻尼的参量</h2><p>常见参量如下：<a href="%E6%9D%90%E6%96%99%E9%98%BB%E5%B0%BC%E5%8F%8A%E9%98%BB%E5%B0%BC%E5%90%88%E9%87%91%E7%9A%84%E7%A0%94%E7%A9%B6%E7%8E%B0%E7%8A%B6_%E6%9D%8E%E6%B2%9B%E5%8B%87.">^2</a></p>
+<ul>
+<li>比阻尼<br>给试样施加一个循环应力$\sigma$ ，由于应变$\epsilon$ 落后于应力$\sigma$ 从而出现应力-应变回线（如下图），回线的面积就代表了振动一周时单位体积的试样消耗的能量，因此比阻尼能力定义为：<br>$$\phi&#x3D;\frac{\Delta U}{U}$$<br>式中，$\phi$为比阻尼能力，$ \Delta U $是振动一周时单位体积的试样消耗的能量,<mark>正比于回线的面积</mark>。$U$ 是单位体积试样振动过程中存储的最大应变能（外界提供的应变能）</li>
+</ul>
+<blockquote>
+<p>文献[2]中说法是弹性能，和应变能应该是一个东西，$U&#x3D;0.5\sigma\epsilon$（一维线弹性材料），材料力学定义线弹性范围内弹性变形能即应变能</p>
+</blockquote>
+<div align="center">
+<img src="https://pic.rmb.bdstatic.com/bjh/f82c899cb61a476e702dc9acb0af1576.png" width="50%" >
+</div>
+
+<ul>
+<li>相位差的正切值<br>材料在周期应力作用下，受激产生周期振动，之后继续施加应力，试样就会受迫振动。振动达稳态后，试样将按照周期应力的频率振动，应变的相位落后应力相位，相位差为$\Phi$如下图。$\Phi$可表示为：<br>$$\Phi&#x3D;\frac{t}{T} \times 2\pi$$<br>式中，$t$是$\epsilon$落后$\sigma$的时间，$T$是外加应力的周期，材料阻尼能力越高，那么相位差角就越大，正切值$tan(\Phi)$越大。<blockquote>
+<p>相位差角适合内耗大的情况，内耗小则比较难测量应力和应变曲线的时间差值。</p>
+</blockquote>
+</li>
+</ul>
+<div align="center">
+<img src="https://pic.rmb.bdstatic.com/bjh/5c646dfacaaed762cea26d2454c65dbb.png" width="50%" >
+</div>
+
+<ul>
+<li><p>对数衰减率 $\delta$<br>材料自由振动过程中，振动的幅度会之间衰减，衰减的越快那就代表阻尼性能越高。定义：<br>$$\delta&#x3D;\frac{1}{n} ln(\frac{A_i}{A_{i+n}})$$<br>其中，n&#x3D;1,2,3,…为振动循环次数。$A_i$是第$i$次振动的振幅，$A_{i+n}$是次的振动振幅，对数衰减率表征振幅衰减的程度，越大则阻尼性能越好。</p>
+<blockquote>
+<p>属于共阵法的一种，适合测试声频阻尼（不懂）</p>
+</blockquote>
+<div align="center">
+<img src="https://pic.rmb.bdstatic.com/bjh/ae15b5fcadf2a8e6d06ef2c3d89772b0.png" width="50%" >
+</div>
+</li>
+<li><p>品质因子倒数<br>用不同频率外力激发试样，如果外力频率&#x3D;试样共振频率那么试样振动的振幅最大。相同条件下，材料阻尼性能越高，那么共振振幅越小，共振峰越宽。所以可以用振峰的尖锐程度表示材料阻尼能力的大小，定义：<br>$$Q^{-1}&#x3D;\frac{|\Delta f|}{\sqrt{3} f_r}$$<br>式中,<br>$Q^{-1}$：品质因子倒数;$\Delta f$ ：共振振幅一半处的频率差值$f_2-f_1$，$f_r$:共振频率<br>材料阻尼性能越高，共振峰越宽，测量越准。</p>
+<blockquote>
+<p>适合测试声频阻尼</p>
+</blockquote>
+<div align="center">
+<img src="https://pic.rmb.bdstatic.com/bjh/1e69f9fc8a9ce4f10d5b193f1a56673f.png" width="50%" >
+</div>
+</li>
+<li><p>其他参量</p>
+<ul>
+<li>损耗因子$\eta$</li>
+<li>阻尼比$\xi$</li>
+<li>损失模量和存储模量之比$\frac{M_2}{M_1}$</li>
+</ul>
+</li>
+</ul>
+<p>当阻尼比较小的时候，如$tan(\Phi)&lt;0.1$。<br>$$tan(\Phi)&#x3D;\Phi&#x3D;\eta&#x3D;Q^{-1}&#x3D;\phi&#x2F;2\pi&#x3D;\delta&#x2F;\pi$$<br>阻尼比较大的时候，如比阻尼$\phi&gt;0.4$。常用比阻尼表示阻尼性能<br>$$\phi&#x3D;1-exp(-2\delta)$$</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>从设置阻尼的方法来看：</p>
+<ol>
+<li>系统阻尼：系统中设置专用<mark>阻尼减振器</mark>,如减振弹簧、冲击阻尼器</li>
+<li>结构阻尼:系统的某一振动结构上附加材料或形成附加结构,增加系统自身的阻尼能力</li>
+<li>材料阻尼：依靠材料本身所具有的高阻尼特性达到减振降噪</li>
+</ol>
+<p>阻尼材料的分类：</p>
+<ol>
+<li>粘弹性阻尼材料</li>
+<li>高阻尼合金材料</li>
+<li>复合阻尼材料<ol>
+<li>聚合物基阻尼复合材料</li>
+<li>金属基阻尼复合材料</li>
+</ol>
+</li>
+<li>智能型阻尼材料<ol>
+<li>压电阻尼材料</li>
+<li>电流变流体阻尼材料</li>
+</ol>
+</li>
+</ol>
+<p>评价阻尼性能的实验方法：</p>
+<ul>
+<li>动态扭摆法TBA</li>
+<li>受迫共振法</li>
+<li>受迫振动非共振法<ul>
+<li>动态粘弹实验DMA</li>
+<li>差示扫描量热分析法 ＤＳＣ</li>
+</ul>
+</li>
+</ul>
+<h2 id="纤维增强复合材料的阻尼机理"><a href="#纤维增强复合材料的阻尼机理" class="headerlink" title="纤维增强复合材料的阻尼机理"></a>纤维增强复合材料的阻尼机理</h2><p>纤维增强复材的阻尼机理和合金不同。主要表现在：<a href="%E7%BA%A4%E7%BB%B4%E5%A2%9E%E5%BC%BA%E5%A4%8D%E5%90%88%E6%9D%90%E6%96%99%E7%BB%93%E6%9E%84%E9%98%BB%E5%B0%BC%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95_%E4%BB%BB%E5%8B%87%E7%94%9F.">^4</a></p>
+<ul>
+<li>matrix和fibre的粘弹性阻尼</li>
+<li>fibre&#x2F;matrix间的中间相阻尼</li>
+<li>材料中微结构损伤（脱胶区、集体断裂处、断裂纤维）的滑动摩擦阻尼</li>
+<li>局部应力集中的非线性粘弹性阻尼</li>
+<li>周期热流动产生的热弹性阻尼。</li>
+</ul>
+<p>应用较广的材料有限阻尼性能预测方法：</p>
+<ul>
+<li>弹性-黏弹性对应原理</li>
+<li><strong>最大应变能法</strong></li>
+</ul>
+<h2 id="最大应变能法（max-strain-energy-method-SEM）"><a href="#最大应变能法（max-strain-energy-method-SEM）" class="headerlink" title="最大应变能法（max strain energy method-SEM）"></a>最大应变能法（max strain energy method-SEM）</h2><p>——任何含有线性粘弹性元的系统的损耗因子都可以表示为每个元的损耗因子与所存储的应变能的百分比的乘积之和，SEM方法应用在纤维增强复合材料时，认为复合材料时一个系统，没有一个单层板就是一个元。<a href="%E7%BA%A4%E7%BB%B4%E5%A2%9E%E5%BC%BA%E5%A4%8D%E5%90%88%E6%9D%90%E6%96%99%E7%BB%93%E6%9E%84%E9%98%BB%E5%B0%BC%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95_%E4%BB%BB%E5%8B%87%E7%94%9F.">^4</a></p>
+<p>在给定频率和振幅下执行稳态振动的结构的损耗因子定义为：<br>$$ \eta &#x3D; \frac{\Delta U}{2\pi U}$$<br>$\Delta U —表示每个循环耗散的能量（或必须提供给系统以保持稳态条件的能量）$<br>$U —存储的应变能$<br>这是一个<strong>反映材料本身</strong>阻尼性能的量</p>
+<blockquote>
+<p>出自《Loss Factors of Viscoelastic Systems in Terms of Energy Concepts》</p>
+</blockquote>
+<p>假设复合材料如下图<br><img src="/%5Ccfrp.png"></p>
+<p>该系统的损耗因子$\eta_{sys}$，根据最大应变能法可知：<br>$$\eta_{system}&#x3D;\sum_{i&#x3D;1}^{n}{\eta_i*\omega_i}$$<br>$\omega_i :每一个layer所存储的应变能的百分比，即$<br>$$\omega_i&#x3D;\frac{U_i}{(U_1+U_2+U_3+…+U_{last})}$$<br>$\eta_i:每个元对应的损耗因子$</p>
+<p>上式展开后：<br>$$\eta_{system}&#x3D;\frac{\sum_{i&#x3D;1}^{n}\eta_i U_i}{U_1+U_2+U_3+…+U_{last}} $$</p>
+<p>当材料被制作成为构件，在某个状态下复杂受力使得不同部位的材料应力分布并不均匀时，将其离散为若干的单元，分别计算每个单元的弹性应变能并假定这个单元内的应力分布式均匀的，从而就可以利用材料损耗因子的定义计算得到这个单元在一个周期内的耗能。将所有单元在一个周期内的耗能总和与所有单元的弹性能总和，用材料损耗因子的定义作类似的运算，就可以得到构件或结构层面的损耗因子，也就是上面的 $\eta_{system}$<br><img src="https://pic.rmb.bdstatic.com/bjh/69ae0339e00d03ef03cf803ffa5c6d4d.png"></p>
+<p>构件层面的损耗因子描述的是在一个周期（以特定的振动形式）的耗能与构件弹性能的对应关系。这意味着，<mark>如果已知构件的特定模态形式下的弹性能就可以评价在这个模态下的耗能(阻尼)。</mark></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/Abaques/%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90/%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    2.模态分析理论笔记
                 
             </div>
-        </div>
+        </a>
     
-</div>
+    
+        <a href="/wiki/Abaques/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%9D%90%E6%96%99%E7%9A%84%E6%80%A7%E8%83%BD/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">材料的性能</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
 </section>
         </div>
         <footer id="footer">
