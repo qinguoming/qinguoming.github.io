@@ -19,23 +19,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"qinguoming.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Fem Hexo Blog">
-<meta property="og:url" content="https://qinguoming.github.io/categories/%E5%8D%95%E5%85%83%E6%A0%BC%E5%BC%8F/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="MIndlin假设博板理论">
+<meta property="og:url" content="https://qinguoming.github.io/2024/11/02/%E8%AE%A1%E7%AE%97%E5%9B%BA%E4%BD%93%E5%8A%9B%E5%AD%A6/%E6%9D%BF%E5%BC%AF%E6%9B%B2%E9%97%AE%E9%A2%98/MIndlin%E5%81%87%E8%AE%BE%E5%8D%9A%E6%9D%BF%E7%90%86%E8%AE%BA/index.html">
 <meta property="og:site_name" content="Fem Hexo Blog">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img2023.cnblogs.com/blog/2026433/202411/2026433-20241102202421659-1078730627.png">
+<meta property="og:image" content="https://img2023.cnblogs.com/blog/2026433/202411/2026433-20241102202534015-740823595.png">
+<meta property="og:image" content="https://img2023.cnblogs.com/blog/2026433/202411/2026433-20241102202604209-1410838287.png">
+<meta property="article:published_time" content="2024-11-02T12:07:55.000Z">
+<meta property="article:modified_time" content="2024-11-02T12:26:05.413Z">
 <meta property="article:author" content="qinguoming">
+<meta property="article:tag" content="计算固体力学">
+<meta property="article:tag" content="板弯曲问题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img2023.cnblogs.com/blog/2026433/202411/2026433-20241102202421659-1078730627.png">
 
 
-<link rel="canonical" href="https://qinguoming.github.io/categories/%E5%8D%95%E5%85%83%E6%A0%BC%E5%BC%8F/">
+<link rel="canonical" href="https://qinguoming.github.io/2024/11/02/%E8%AE%A1%E7%AE%97%E5%9B%BA%E4%BD%93%E5%8A%9B%E5%AD%A6/%E6%9D%BF%E5%BC%AF%E6%9B%B2%E9%97%AE%E9%A2%98/MIndlin%E5%81%87%E8%AE%BE%E5%8D%9A%E6%9D%BF%E7%90%86%E8%AE%BA/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/单元格式/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://qinguoming.github.io/2024/11/02/%E8%AE%A1%E7%AE%97%E5%9B%BA%E4%BD%93%E5%8A%9B%E5%AD%A6/%E6%9D%BF%E5%BC%AF%E6%9B%B2%E9%97%AE%E9%A2%98/MIndlin%E5%81%87%E8%AE%BE%E5%8D%9A%E6%9D%BF%E7%90%86%E8%AE%BA/","path":"2024/11/02/计算固体力学/板弯曲问题/MIndlin假设博板理论/","title":"MIndlin假设博板理论"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分类: 单元格式 | Fem Hexo Blog</title>
+<title>MIndlin假设博板理论 | Fem Hexo Blog</title>
   
 
 
@@ -48,7 +56,119 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -154,50 +274,133 @@
 
     </div>
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">单元格式
-          <small>分类</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qinguoming.github.io/2024/11/02/%E8%AE%A1%E7%AE%97%E5%9B%BA%E4%BD%93%E5%8A%9B%E5%AD%A6/%E6%9D%BF%E5%BC%AF%E6%9B%B2%E9%97%AE%E9%A2%98/MIndlin%E5%81%87%E8%AE%BE%E5%8D%9A%E6%9D%BF%E7%90%86%E8%AE%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="qinguoming">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fem Hexo Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MIndlin假设博板理论 | Fem Hexo Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MIndlin假设博板理论
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
+
+      <time title="创建时间：2024-11-02 20:07:55 / 修改时间：20:26:05" itemprop="dateCreated datePublished" datetime="2024-11-02T20:07:55+08:00">2024-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E5%9B%BA%E4%BD%93%E5%8A%9B%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算固体力学</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><meta name="referrer" content="no-referrer">
+
+<span id="more"></span>
+
+<p>MIndlin假设适合中厚度板的弯曲问题.基本假设如下:</p>
+<ol>
+<li>挠度与板厚度相比很小,且和z坐标无关.</li>
+<li>变形前的中免直法线不在垂直中面</li>
+<li>中面的横向应变不计</li>
+</ol>
+<p>换句话就是:</p>
+<p><img src="https://img2023.cnblogs.com/blog/2026433/202411/2026433-20241102202421659-1078730627.png" alt="img"></p>
+<p>相比薄板的Kirchoff假设,Mindlin多了横向剪力和对应的转角:</p>
+<p><img src="https://img2023.cnblogs.com/blog/2026433/202411/2026433-20241102202534015-740823595.png" alt="img"></p>
+<p>总而可知,单元势能为:</p>
+<p><img src="https://img2023.cnblogs.com/blog/2026433/202411/2026433-20241102202604209-1410838287.png" alt="img"></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-10-20T09:13:31+08:00"
-              content="2024-10-20">
-          10-20
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/10/20/%E8%AE%A1%E7%AE%97%E5%9B%BA%E4%BD%93%E5%8A%9B%E5%AD%A6/CST-ELEM-FORMULA/%E3%80%90%E8%AE%A1%E7%AE%97%E5%8A%9B%E5%AD%A6%E3%80%91CST%E5%8D%95%E5%85%83%E6%A0%BC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" itemprop="url">
-            <span itemprop="name">CST单元格式推导</span>
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://space.bilibili.com/470140717?spm_id_from=333.1007.0.0">
+            <span class="icon">
+              <i class="fa fa-bilibili"></i>
+            </span>
+
+            <span class="label">Bilibili</span>
           </a>
       </div>
-
-      
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E5%9B%BA%E4%BD%93%E5%8A%9B%E5%AD%A6/" rel="tag"># 计算固体力学</a>
+              <a href="/tags/%E6%9D%BF%E5%BC%AF%E6%9B%B2%E9%97%AE%E9%A2%98/" rel="tag"># 板弯曲问题</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/10/29/%E8%AE%A1%E7%AE%97%E5%9B%BA%E4%BD%93%E5%8A%9B%E5%AD%A6/%E6%9D%BF%E5%BC%AF%E6%9B%B2%E9%97%AE%E9%A2%98/Kirchhoff%E5%81%87%E8%AE%BE%E8%96%84%E6%9D%BF%E7%90%86%E8%AE%BA/" rel="prev" title="Kirchhoff假设薄板理论">
+                  <i class="fa fa-angle-left"></i> Kirchhoff假设薄板理论
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
 
 </div>
   </main>
